@@ -1,0 +1,278 @@
+<section class="section p-3 bg-light">
+    <div class="container p-4 bg-white rounded" id="principal">        
+        <div class="row my-row"> 
+            <h4 class="p-2 text-dark font-weight-bold">Fichajes</h4>         
+            <div class="col-md-4 ml-auto">
+                <button class="btn bg-primary rounded text-white w-25 float-right">Entrar</button>
+            </div> 
+        </div>
+        <div class="row"> 
+            <div class="col-md-4">
+                <p class="p-2 text-dark font-weight-bold text-center">(gimenezsl) ()h</p> 
+            </div>           
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-4"><p class="text-dark text-center">Horario: </p></div>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-4">
+                <p class="text-dark text-center">
+                    09:00:00 - 14:00:00
+                    <br>
+                    15:00:00 - 18:00:00
+                </p>                
+                <hr>
+                <p class="text-dark text-center">
+                    Centro
+                    <br>
+                    <strong>(gimenezsl)</strong>
+                </p>
+            </div>
+            <div class="col-6 col-md-4">
+                <p class="p-2 text-dark text-center">Horas trabajadas: 
+                <br>
+                <strong>
+                    00:00:00h
+                </strong>
+                </p>
+                <div class="progress"></div>
+            </div>
+            <div class="col-6 col-md-4">
+                <p class="text-dark">Entrada: </p>
+                <hr>
+                <p class="text-dark">Salida: </p>
+                <hr>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section p-2 bg-light">
+    <div class="container p-4 bg-white rounded border w-75" id="principal">  
+        <div class="row header-block">
+            <div class="header-warper">
+                <h4 class="p-2 header-block-title ng-binding">Mi Presencia</h4>
+            </div>
+            <div class="col-md-10 ml-auto">
+                <div class="custom-actions">
+                    <div class="actions userDiary">      
+                        <form>
+                            <div class="row">
+                              <div class="col">
+                                <button class="btn btn-link form-control ng-binding">
+                                    &lt; mes anterior
+                                </button>
+                              </div>
+                              <div class="col p-1">
+                                <input type="text" id="fromDate" name="fromDate" class="form-control ng-isolate-scope ng-pristine ng-valid hasDatepicker" maxdate="'tonextyear'" autocomplete="off" currentdate="filterDiary.userStartDate" close="updateUserStartDate(date)" placeholder="Desde">
+                              </div>
+                              <div class="col p-1">
+                                <input type="text" id="toDate" name="toDate" class="form-control ng-isolate-scope ng-pristine ng-valid hasDatepicker" placeholder="Hasta" autocomplete="off" >
+                              </div>
+                              <div class="col">
+                                <button class="btn btn-link form-control ng-binding" ng-click="diaryNext()">
+                                    mes siguiente &gt;
+                                </button>
+                              </div>
+                              <div class="col">
+                                <app-modal-self></app-modal-self>                           
+                              </div>
+                            </div>
+                          </form>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="row justify-content-center">
+            <table class="table border m-0">
+                <thead class="thead-dark">
+                    <tr>
+                        <th></th>
+                        <th class="ng-binding">Fecha</th>
+                        <th class="desc ng-binding">Motivo</th>
+                        <th class="ng-binding">Horas motivo</th>
+                        <th class="desc ng-binding">Entrada</th>
+                        <th class="desc ng-binding">Salida</th>
+                        <th class="ng-binding">Descansos</th>
+                        <th class="ng-binding">Horario teórico</th>
+                        <th class="ng-binding">Total horas</th>
+                        <th class="ng-binding">Diferencia</th>
+                        <th ng-if="hasPermissionDiaryHourTypesReader" class="ng-binding ng-scope">No categorizadas</th>
+                        <th class="ng-binding">Confirmar</th>
+                        <th class="ng-binding">Observaciones</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="diary in diaries" ng-class="{ 'alert-danger': (diary.Accepted != null &amp;&amp; diary.Accepted == false), 'today' : diary.isToday}" class="ng-scope">
+                        <td class="actions">
+                            <!-- ngIf: (diary.IsUserEditable) && (loggedUser.PermissionsKeys.indexOf(',131,') >= 0 || loggedUser.PermissionsKeys == '') -->
+                        </td>
+                        <td class="ng-binding">Jueves<br>01/04/2021</td>
+
+                        <td ng-class="{'vacation': diary.Days >= 1, 'holidays': diary.IsHoliday, 'weekend': diary.IsWeekend}" class="desc presence holidays"> <i></i>
+                            <span class="ng-binding">Jueves Santo</span></td>
+                        <td class="ng-binding">0h</td>
+                        <td ng-class="{'text-danger': diary.TrueStartTime > diary.MaxStartTime}" class="desc"> 
+                            <!-- ngIf: diary.HoursToWork > 0 && !diary.IsFlexible || diary.TrueStartTime != null -->
+                            <!-- ngIf: diary.HoursToWork >= 0 && (!diary.Days >= 1 || !diary.Hours > 0 ) &&
+                                !diary.IsHoliday && !diary.IsWeekend && diary.IsFlexible &&
+                                diary.TrueStartTime === null -->
+                        </td>
+                        <td ng-class="{'text-danger': diary.TrueEndTime < diary.MinEndTime}" class="desc">
+                           <!-- ngIf: diary.HoursToWork > 0 &&  !diary.IsFlexible || diary.TrueStartTime != null -->
+                            
+                        </td>
+                        <td>
+                            <!-- ngIf: diary.HoursToWork > 0 -->
+                        </td>
+                        <td>
+                            <!-- ngIf: diary.HoursToWork > 0 -->
+                            
+                        </td>
+                       <td>
+                            <!-- ngIf: diary.HoursToWork >= 0 && (diary.Accepted === null || diary.Accepted) --><span ng-if="diary.HoursToWork >= 0 &amp;&amp; (diary.Accepted === null || diary.Accepted)" class="ng-binding ng-scope">
+                                0h
+                            </span><!-- end ngIf: diary.HoursToWork >= 0 && (diary.Accepted === null || diary.Accepted) -->
+                            <!-- ngIf: diary.Accepted != null && diary.Accepted == false -->
+                        </td>
+                        <td>
+                            <!-- ngIf: (diary.Accepted === null || diary.Accepted) --><span ng-class="{'text-danger': diary.HoursDiff < 0 }" ng-if="(diary.Accepted === null || diary.Accepted)" class="ng-binding ng-scope">0h</span><!-- end ngIf: (diary.Accepted === null || diary.Accepted) -->
+                        </td>
+                        <!-- ngIf: hasPermissionDiaryHourTypesReader --><td ng-if="hasPermissionDiaryHourTypesReader" class="ng-scope">
+                            <!-- ngIf: (diary.Accepted === null || diary.Accepted) --><span ng-if="(diary.Accepted === null || diary.Accepted)" class="ng-binding ng-scope">0h</span><!-- end ngIf: (diary.Accepted === null || diary.Accepted) -->
+                        </td><!-- end ngIf: hasPermissionDiaryHourTypesReader -->
+                        <!-- ngRepeat: col in dynamicColumns -->
+                        <td><!-- ngIf: diary.Accepted --><i class="fa fa-check fa-accept ng-scope" ng-if="diary.Accepted"></i><!-- end ngIf: diary.Accepted --></td>
+                        <td class="comments" ng-init="seeMore = false">
+                            <!-- ngIf: diary.Comments != null -->
+
+                        </td>
+
+                        <!-- <td  ng-init="seeMore = false" class="comments" >
+
+                            <span ng-class="{'see-more' : seeMore == true }" ng-if="diary.Comments != null">"{{diary.Comments}}"</span>
+                            {{seeMore}}
+                            <a  ng-if="diary.Comments != null" ng-click="seeMore = !seeMore" href=""><i class="fa fa-angle-down" ng-if="seeMore == false" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true" ng-if="seeMore == true "></i></a>
+                        </td> -->
+                        <td class="actions">
+                            <!-- ngIf: (diary.IsUserEditable) && (loggedUser.PermissionsKeys.indexOf(',131,') >= 0 || loggedUser.PermissionsKeys == '*') -->
+                        </td>
+                    </tr>
+                    <!--Final de la linia 1-->
+                    <tr ng-repeat="diary in diaries" ng-class="{ 'alert-danger': (diary.Accepted != null &amp;&amp; diary.Accepted == false), 'today' : diary.isToday}" class="ng-scope">
+                        <td class="actions">
+                            <!-- ngIf: (diary.IsUserEditable) && (loggedUser.PermissionsKeys.indexOf(',131,') >= 0 || loggedUser.PermissionsKeys == '') -->
+                        </td>
+                        <td class="ng-binding">Viernes<br>02/04/2021</td>
+
+                        <td ng-class="{'vacation': diary.Days >= 1, 'holidays': diary.IsHoliday, 'weekend': diary.IsWeekend}" class="desc presence holidays"> <i></i>
+                            <span class="ng-binding">Viernes Santo</span></td>
+                        <td class="ng-binding">0h</td>
+                        <td ng-class="{'text-danger': diary.TrueStartTime > diary.MaxStartTime}" class="desc"> 
+                            <!-- ngIf: diary.HoursToWork > 0 && !diary.IsFlexible || diary.TrueStartTime != null -->
+                            <!-- ngIf: diary.HoursToWork >= 0 && (!diary.Days >= 1 || !diary.Hours > 0 ) &&
+                                !diary.IsHoliday && !diary.IsWeekend && diary.IsFlexible &&
+                                diary.TrueStartTime === null -->
+                        </td>
+                        <td ng-class="{'text-danger': diary.TrueEndTime < diary.MinEndTime}" class="desc">
+                           <!-- ngIf: diary.HoursToWork > 0 &&  !diary.IsFlexible || diary.TrueStartTime != null -->
+                            
+                        </td>
+                        <td>
+                            <!-- ngIf: diary.HoursToWork > 0 -->
+                        </td>
+                        <td>
+                            <!-- ngIf: diary.HoursToWork > 0 -->
+                            
+                        </td>
+                       <td>
+                            <!-- ngIf: diary.HoursToWork >= 0 && (diary.Accepted === null || diary.Accepted) --><span ng-if="diary.HoursToWork >= 0 &amp;&amp; (diary.Accepted === null || diary.Accepted)" class="ng-binding ng-scope">
+                                0h
+                            </span><!-- end ngIf: diary.HoursToWork >= 0 && (diary.Accepted === null || diary.Accepted) -->
+                            <!-- ngIf: diary.Accepted != null && diary.Accepted == false -->
+                        </td>
+                        <td>
+                            <!-- ngIf: (diary.Accepted === null || diary.Accepted) --><span ng-class="{'text-danger': diary.HoursDiff < 0 }" ng-if="(diary.Accepted === null || diary.Accepted)" class="ng-binding ng-scope">0h</span><!-- end ngIf: (diary.Accepted === null || diary.Accepted) -->
+                        </td>
+                        <!-- ngIf: hasPermissionDiaryHourTypesReader --><td ng-if="hasPermissionDiaryHourTypesReader" class="ng-scope">
+                            <!-- ngIf: (diary.Accepted === null || diary.Accepted) --><span ng-if="(diary.Accepted === null || diary.Accepted)" class="ng-binding ng-scope">0h</span><!-- end ngIf: (diary.Accepted === null || diary.Accepted) -->
+                        </td><!-- end ngIf: hasPermissionDiaryHourTypesReader -->
+                        <!-- ngRepeat: col in dynamicColumns -->
+                        <td><!-- ngIf: diary.Accepted --><i class="fa fa-check fa-accept ng-scope" ng-if="diary.Accepted"></i><!-- end ngIf: diary.Accepted --></td>
+                        <td class="comments" ng-init="seeMore = false">
+                            <!-- ngIf: diary.Comments != null -->
+
+                        </td>
+
+                        <!-- <td  ng-init="seeMore = false" class="comments" >
+
+                            <span ng-class="{'see-more' : seeMore == true }" ng-if="diary.Comments != null">"{{diary.Comments}}"</span>
+                            {{seeMore}}
+                            <a  ng-if="diary.Comments != null" ng-click="seeMore = !seeMore" href=""><i class="fa fa-angle-down" ng-if="seeMore == false" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true" ng-if="seeMore == true "></i></a>
+                        </td> -->
+                        <td class="actions">
+                            <!-- ngIf: (diary.IsUserEditable) && (loggedUser.PermissionsKeys.indexOf(',131,') >= 0 || loggedUser.PermissionsKeys == '*') -->
+                        </td>
+                    </tr>
+                    <!--Final linia 2-->
+                    <tr ng-repeat="diary in diaries" ng-class="{ 'alert-danger': (diary.Accepted != null &amp;&amp; diary.Accepted == false), 'today' : diary.isToday}" class="ng-scope">
+                        <td class="actions">
+                            <!-- ngIf: (diary.IsUserEditable) && (loggedUser.PermissionsKeys.indexOf(',131,') >= 0 || loggedUser.PermissionsKeys == '') -->
+                        </td>
+                        <td class="ng-binding">Sábado<br>03/04/2021</td>
+
+                        <td ng-class="{'vacation': diary.Days >= 1, 'holidays': diary.IsHoliday, 'weekend': diary.IsWeekend}" class="desc presence"> <i></i>
+                            <span class="ng-binding">gimenezsl</span></td>
+                        <td class="ng-binding">0h</td>
+                        <td ng-class="{'text-danger': diary.TrueStartTime > diary.MaxStartTime}" class="desc"> 
+                            <!-- ngIf: diary.HoursToWork > 0 && !diary.IsFlexible || diary.TrueStartTime != null -->
+                            <!-- ngIf: diary.HoursToWork >= 0 && (!diary.Days >= 1 || !diary.Hours > 0 ) &&
+                                !diary.IsHoliday && !diary.IsWeekend && diary.IsFlexible &&
+                                diary.TrueStartTime === null -->
+                        </td>
+                        <td ng-class="{'text-danger': diary.TrueEndTime < diary.MinEndTime}" class="desc">
+                           <!-- ngIf: diary.HoursToWork > 0 &&  !diary.IsFlexible || diary.TrueStartTime != null -->
+                            
+                        </td>
+                        <td>
+                            <!-- ngIf: diary.HoursToWork > 0 -->
+                        </td>
+                        <td>
+                            <!-- ngIf: diary.HoursToWork > 0 -->
+                            
+                        </td>
+                       <td>
+                            <!-- ngIf: diary.HoursToWork >= 0 && (diary.Accepted === null || diary.Accepted) --><span ng-if="diary.HoursToWork >= 0 &amp;&amp; (diary.Accepted === null || diary.Accepted)" class="ng-binding ng-scope">
+                                0h
+                            </span><!-- end ngIf: diary.HoursToWork >= 0 && (diary.Accepted === null || diary.Accepted) -->
+                            <!-- ngIf: diary.Accepted != null && diary.Accepted == false -->
+                        </td>
+                        <td>
+                            <!-- ngIf: (diary.Accepted === null || diary.Accepted) --><span ng-class="{'text-danger': diary.HoursDiff < 0 }" ng-if="(diary.Accepted === null || diary.Accepted)" class="ng-binding ng-scope">0h</span><!-- end ngIf: (diary.Accepted === null || diary.Accepted) -->
+                        </td>
+                        <!-- ngIf: hasPermissionDiaryHourTypesReader --><td ng-if="hasPermissionDiaryHourTypesReader" class="ng-scope">
+                            <!-- ngIf: (diary.Accepted === null || diary.Accepted) --><span ng-if="(diary.Accepted === null || diary.Accepted)" class="ng-binding ng-scope">0h</span><!-- end ngIf: (diary.Accepted === null || diary.Accepted) -->
+                        </td><!-- end ngIf: hasPermissionDiaryHourTypesReader -->
+                        <!-- ngRepeat: col in dynamicColumns -->
+                        <td><!-- ngIf: diary.Accepted --><i class="fa fa-check fa-accept ng-scope" ng-if="diary.Accepted"></i><!-- end ngIf: diary.Accepted --></td>
+                        <td class="comments" ng-init="seeMore = false">
+                            <!-- ngIf: diary.Comments != null -->
+
+                        </td>
+
+                        <!-- <td  ng-init="seeMore = false" class="comments" >
+
+                            <span ng-class="{'see-more' : seeMore == true }" ng-if="diary.Comments != null">"{{diary.Comments}}"</span>
+                            {{seeMore}}
+                            <a  ng-if="diary.Comments != null" ng-click="seeMore = !seeMore" href=""><i class="fa fa-angle-down" ng-if="seeMore == false" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true" ng-if="seeMore == true "></i></a>
+                        </td> -->
+                        <td class="actions">
+                            <!-- ngIf: (diary.IsUserEditable) && (loggedUser.PermissionsKeys.indexOf(',131,') >= 0 || loggedUser.PermissionsKeys == '*') -->
+                        </td>
+                    </tr>
+                    <!--Final linia 3-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

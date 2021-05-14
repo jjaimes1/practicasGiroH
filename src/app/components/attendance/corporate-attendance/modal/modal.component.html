@@ -1,0 +1,215 @@
+<ng-template #contingut let-modal class="d-flex">
+    <div class="mx-auto">
+        <div class="modal-header">
+            <h5 class="modal-title text-center">Planificar horario</h5>
+            <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p class="ml-3"><strong>Filtro</strong></p>
+            <div class="container-fluid">
+                <div class="d-inline">
+                    <div class="d-flex">
+                        <div class="mx-auto">
+                            <p>Empleado</p>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle border" type="button" id="dropdownMenuButton1"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Seleccione empleado
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#"></a>
+                                    <a class="dropdown-item" href="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mx-auto">
+                            <p>Departamento</p>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle border" type="button" id="dropdownMenuButton2"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Seleccione empleado
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#"></a>
+                                    <a class="dropdown-item" href="#"></a>
+                                    <a class="dropdown-item" href="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex mt-4">
+                        <div class="mx-auto">
+                            <p>Fecha Inicio</p>
+                            <input type="date" id="start" name="trip-start" value="01/04/2021">
+                        </div>
+                        <div class="mx-auto">
+                            <p>Fecha Inicio</p>
+                            <input type="date" id="start" name="trip-start" value="01/04/2021">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-inline mt-2">
+                    <p><strong>Valores</strong></p>
+                    <div class="d-flex mt-4">
+                        <div class="mx-auto">
+                            <p>Centro</p>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle border" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Seleccione centro
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#"></a>
+                                    <a class="dropdown-item" href="#"></a>
+                                    <a class="dropdown-item" href="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mx-auto">
+                            <p>Departamento</p>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle border" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Seleccionar Departamento
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#"></a>
+                                    <a class="dropdown-item" href="#"></a>
+                                    <a class="dropdown-item" href="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mx-auto">
+                            <p>Cargo</p>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle border" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Seleccionar cargo
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#"></a>
+                                    <a class="dropdown-item" href="#"></a>
+                                    <a class="dropdown-item" href="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex mt-4">
+                        <div class="mx-auto">                            
+                            <p>Calendario</p>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle border" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Seleccionar calendario
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#"></a>
+                                    <a class="dropdown-item" href="#"></a>
+                                    <a class="dropdown-item" href="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mx-auto">
+                            <p>Horario</p>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle border" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Seleccionar Horario
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#"></a>
+                                    <a class="dropdown-item" href="#"></a>
+                                    <a class="dropdown-item" href="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mx-auto">
+                            <p>Seleccionar de inicio del horario</p>
+                            <div class="d-flex">
+                                <input class="mx-auto mt-1" type="number" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-inline mt-2">
+                    <p><strong>Descansos semanales</strong></p>
+                    <div class="d-flex">
+                        <div>
+                            <input class="mr-3" type="checkbox" id="cbox1" value="first_checkbox"><label
+                                for="cbox1">L</label>
+                            <input class="mx-3" type="checkbox" id="cbox2" value="second_checkbox"> <label
+                                for="cbox2">Ma</label>
+                            <input class="mx-3" type="checkbox" id="cbox3" value="third_checkbox"> <label
+                                for="cbox3">Mie</label>
+                            <input class="mx-3" type="checkbox" id="cbox4" value="fourth_checkbox"> <label
+                                for="cbox4">J</label>
+                            <input class="mx-3" type="checkbox" id="cbox5" value="fifth_checkbox"> <label
+                                for="cbox5">V</label>
+                            <input class="mx-3" type="checkbox" id="cbox6" value="sixth_checkbox"> <label
+                                for="cbox6">S</label>
+                            <input class="mx-3" type="checkbox" id="cbox7" value="seventh_checkbox"> <label
+                                for="cbox7">D</label>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-flex mr-3 mt-2">
+                    <div>
+                        <div class="d-flex">
+                            <p><strong>Usar Fichajes</strong></p>
+                            &nbsp;&nbsp;&nbsp;
+                            <div class="form-check form-switch ml-1">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <p>Usar fichajes en la plataforma</p>&nbsp;&nbsp;
+                            <div class="form-check form-switch ml-1">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-inline mr-3 mt-2">
+                    <p><strong>Observaciones</strong></p>
+                    <div class="form-group w-100">
+                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                            placeholder="Observaciones"></textarea>
+                    </div>
+                </div>
+                <div class="d-inline">
+                    <div class="mx-auto">
+                        <p><strong>Resetear opciones por defecto</strong></p>
+                        <p class="ml-4"><input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            Atención: Esta opción va a resetear los horarios por defecto del trabajador o departamento
+                            seleccionado.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 offset-md-4">
+                        <button class="btn border border-primary" aria-label="close" type="button"
+                            (click)="modal.dismiss()">
+                            <span aria-hidden="true">Cancelar</span>
+                        </button>
+
+                        <button class="btn bg-primary text-white send" ng-disabled="submited" btn-loading="submited" aria-label="close" type="submit"
+                            (click)="modal.dismiss()">
+                            <span aria-hidden="true">Aceptar</span>
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<button type="button" class="btn btn-outline-dark" (click)="OpenSM(contingut)">Planificar Horario</button>

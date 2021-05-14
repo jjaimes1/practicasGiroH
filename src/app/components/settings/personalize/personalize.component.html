@@ -1,0 +1,333 @@
+<div class="background"></div>
+    <div class="fondo bg-white border-1 px-5">
+        <div class="flex-row bg-light">
+            <div id ="leftSide">
+                <div class="container-xxl p-3 mt-3 mw-100 d-flex justify-content-between" id="tablon">
+                    <header>
+                        <h5 class="mt-2">Calendarios</h5>
+                    </header>
+                    <app-modal-calendario class="ml-auto mb-5"></app-modal-calendario>
+                </div>
+                
+                <div class="container-xxl p-3 mt-3 mw-100" id="tablon">
+                    <header>
+                        <h5 class="mt-2">Formato tiempo</h5>
+                        <p class="ng-binding">Siempre que se muestre el dato se visualizará en el formato seleccionado</p>
+                    </header>
+                    <div id="ajustes">
+                        <fieldset>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="hourTypeOptions" id="ht1" value="true" ng-model="hoursFormatted" ng-value="true" ng-change="toggleFormat(false)" class="ng-pristine ng-valid">
+                                    Formato sexagesimal. (Media hora = 0h 30m)
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="hourTypeOptions" id="ht2" value="false" ng-model="hoursFormatted" ng-value="false" ng-change="toggleFormat(true)" class="ng-pristine ng-valid">
+                                    Formato decimal. (Media hora = 0.5h)
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="container-xxl p-3 mt-3 mw-100 d-flex justify-content-between" id="tablon">
+                    <header>
+                        <h5 class="mt-2">Horarios</h5>
+                    </header>
+                    <app-modal-horario class="ml-auto mb-5"></app-modal-horario>
+                </div>
+
+                <div class="container-xxl p-3 mt-3 mw-100" id="tablon">
+                    <header>
+                        <h5 class="mt-2">Visibilidad</h5>
+                    </header>
+                    <fieldset>
+                        <div class="radio">
+                            <label class="ng-binding">
+                                <input type="radio" name="vacationPrivacyOptions" id="vp1" value="0" ng-model="company.VacationPrivacyValue" ng-value="0" ng-change="save()" class="ng-pristine ng-valid">
+                                Sin visibilidad<br>
+                                <small class="ng-binding">Los empleados solo pueden ver sus propias ausencias</small><hr class="hr">
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="ng-binding">
+                                <input type="radio" name="vacationPrivacyOptions" id="vp2" value="5" ng-model="company.VacationPrivacyValue" ng-value="5" ng-change="save()" class="ng-pristine ng-valid">
+                                Visibilidad por departamentos<br>
+                                <small class="ng-binding">Los empleados pueden ver las ausencias de los miembros de su departamento</small><hr>
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="ng-binding">
+                                <input type="radio" name="vacationPrivacyOptions" id="vp3" value="10" ng-model="company.VacationPrivacyValue" ng-value="10" ng-change="save()" class="ng-pristine ng-valid">
+                                Visibilidad total<br>
+                                <small class="ng-binding">Los empleados pueden ver las ausencias de toda la empresa</small>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="container-xxl p-3 mt-3 mw-100" id="tablon">
+                    <header>
+                        <h5 class="mt-2">Presencia</h5>
+                    </header>
+                    <fieldset>
+                        <div class="radio">
+                            <label class="ng-binding">
+                                <input type="radio" name="diaryTypeOptions" id="dt1" value="false" ng-model="company.UseDiary" ng-value="false" ng-change="saveDiary()" class="ng-pristine ng-valid">
+                                Desactivar presencia<br>
+                                <small class="ng-binding">No se registrarán las horas trabajadas</small>
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="ng-binding">
+                                <input type="radio" name="diaryTypeOptions" id="dt2" value="true" ng-model="company.UseDiary" ng-value="true" ng-change="saveDiary()" class="ng-pristine ng-valid">
+                                Activar presencia<br>
+                                <small class="ng-binding">Se registrarán las horas trabajadas</small>
+                            </label>
+                        </div>
+                        <div class="checkbox" ng-show="company.UseDiary">
+                            <label class="ng-binding">
+                                <input type="checkbox" name="diarySignOptions" id="dt3" value="false" ng-model="company.UseSign" ng-value="false" ng-change="save()" class="ng-pristine ng-valid">
+                                Usar fichajes<br>
+                                <small class="ng-binding">Usar fichajes en la plataforma</small><br><br>
+                            </label>
+                            <br>
+                            <div>
+                                <label class="ng-binding">Día en que se notifican los horarios no confirmados</label>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <input type="number" id="hora" ng-model="company.NotifyDiaryNotConfirmedDay" class="form-control ng-pristine ng-valid ng-valid-number ng-valid-max ng-valid-min" min="1" max="31" ng-change="save()">
+                                    </div>
+                                </div>
+                                <small id="hora" class="ng-binding">Día del mes posterior al mes que se quiere confirmar. Dejar en blanco para no enviar notificación. </small>
+                            </div>     
+                            <br>         
+                            <div>
+                                <label class="ng-binding">
+                                    <input type="checkbox" ng-model="company.AllowGeoLocation" ng-change="saveGeoLocation()" class="ng-pristine ng-valid">
+                                    Geolocalización<br>
+                                    <small class="ng-binding">Permitir funciones en Web y App </small>
+                                </label>
+                            </div>
+                    
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        
+            <div id="rightSide"> 
+                <div class="container-xxl w-100 p-3 mt-3 mw-100 d-flex justify-content-between" id="tablon">
+                    <header>
+                        <h5 class="mt-2">Convenios</h5>
+                    </header>
+                    <app-modal-convenio class="ml-auto mb-5"></app-modal-convenio> 
+                </div>
+
+                <div class="container-xxl w-100 p-3 mt-3 mw-100" id="motivo">
+                    <header>
+                        <h5 class="mt-2">Tipos de motivo</h5>
+                    </header>
+                    <app-modal-tipos class="ml-auto mb-0 float-right"></app-modal-tipos>
+                    <div id="agreement-events-types">
+                        <table class="table ng-isolate-scope" ng-loading="types">
+                            <tbody>
+                                <tr ng-show="types" class="">
+                                    <td class="border-0">
+                                        <strong class="ng-binding">Ausencia</strong>
+                                    </td>
+                                    <td class="border-0"></td>
+                                    <td class="border-0"></td>
+                                </tr>
+
+                                <tr ng-repeat="type in types" ng-if="!type.IsPresence &amp;&amp; type.HourTypeId !== 7" class="ng-scope">
+                                    <td class="ng-binding">Vacaciones</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-vacaciones></app-modal-vacaciones>
+                                    </td>
+                                </tr>
+                                
+                                <tr ng-repeat="type in types" ng-if="!type.IsPresence &amp;&amp; type.HourTypeId !== 7" class="ng-scope">
+                                    <td class="ng-binding">Nacimiento de hija/o</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-nacimiento></app-modal-nacimiento>
+                                    </td>
+                                </tr>
+
+                                <tr ng-repeat="type in types" ng-if="!type.IsPresence &amp;&amp; type.HourTypeId !== 7" class="ng-scope">
+                                    <td class="ng-binding">Maternidad</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-maternidad></app-modal-maternidad>
+                                    </td>
+                                </tr>
+
+                                <tr ng-repeat="type in types" ng-if="!type.IsPresence &amp;&amp; type.HourTypeId !== 7" class="ng-scope">
+                                    <td class="ng-binding">Horas de ausencia</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-horas-ausencia></app-modal-horas-ausencia>
+                                    </td>
+                                </tr>
+
+                                <tr ng-repeat="type in types" ng-if="!type.IsPresence &amp;&amp; type.HourTypeId !== 7" class="ng-scope">
+                                    <td class="ng-binding">Mudanza</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-mudanza></app-modal-mudanza>
+                                    </td>
+                                </tr>
+
+                                <tr ng-repeat="type in types" ng-if="!type.IsPresence &amp;&amp; type.HourTypeId !== 7" class="ng-scope">
+                                    <td class="ng-binding">Enfermedad</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-enfermedad></app-modal-enfermedad>
+                                    </td>
+                                </tr>
+                                
+                                <tr ng-repeat="type in types" ng-if="!type.IsPresence &amp;&amp; type.HourTypeId !== 7" class="ng-scope">
+                                    <td class="ng-binding">Defunción</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-defuncion></app-modal-defuncion>
+                                    </td>
+                                </tr>
+                                
+                                <tr ng-repeat="type in types" ng-if="!type.IsPresence &amp;&amp; type.HourTypeId !== 7" class="ng-scope">
+                                    <td class="ng-binding">Boda</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-boda></app-modal-boda>
+                                    </td>
+                                </tr>
+                                
+                                <tr ng-repeat="type in types" ng-if="!type.IsPresence &amp;&amp; type.HourTypeId !== 7" class="ng-scope">
+                                    <td class="ng-binding">Paternidad</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-paternidad></app-modal-paternidad>
+                                    </td>
+                                </tr>
+
+                                <tr ng-show="types" class="">
+                                    <td>
+                                        <br>
+                                        <strong class="ng-binding">Presencia</strong>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr ng-repeat="type in types" ng-if="type.IsPresence &amp;&amp; type.HourTypeId !== 6" class="ng-scope">
+                                    <td class="ng-binding">Trabajar en día festivo</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-treball-festiu></app-modal-treball-festiu>
+                                    </td>
+                                </tr>
+                                
+                                <tr ng-repeat="type in types" ng-if="type.IsPresence &amp;&amp; type.HourTypeId !== 6" class="ng-scope">
+                                    <td class="ng-binding">Trabaja desde casa</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-treball-casa></app-modal-treball-casa>
+                                    </td>
+                                </tr>
+                                
+                                <tr ng-repeat="type in types" ng-if="type.IsPresence &amp;&amp; type.HourTypeId !== 6" class="ng-scope">
+                                    <td class="ng-binding">Ajuste de sistema</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-ajustesdesistema></app-modal-ajustesdesistema>
+                                    </td>
+                                </tr>
+                                
+                                <tr ng-repeat="type in types" ng-if="type.IsPresence &amp;&amp; type.HourTypeId !== 6" class="ng-scope">
+                                    <td class="ng-binding">Extraordinarias</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-extraordinarias></app-modal-extraordinarias>
+                                    </td>
+                                </tr>
+                                
+                                <tr ng-repeat="type in types" ng-if="type.IsPresence &amp;&amp; type.HourTypeId !== 6" class="ng-scope">
+                                    <td class="ng-binding">Complementarias</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-complementarias></app-modal-complementarias>
+                                    </td>
+                                </tr>
+                                
+                                <tr ng-repeat="type in types" ng-if="type.IsPresence &amp;&amp; type.HourTypeId !== 6" class="ng-scope">
+                                    <td class="ng-binding">Compl. aceptación voluntaria</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-aceptacio-voluntaria></app-modal-aceptacio-voluntaria>
+                                    </td>
+                                </tr>
+                                
+                                <tr ng-repeat="type in types" ng-if="type.IsPresence &amp;&amp; type.HourTypeId !== 6" class="ng-scope">
+                                    <td class="ng-binding">Extr. fuerza mayor</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-fuerzamajor></app-modal-fuerzamajor>
+                                    </td>
+                                </tr>
+                                
+                                <tr ng-repeat="type in types" ng-if="type.IsPresence &amp;&amp; type.HourTypeId !== 6" class="ng-scope">
+                                    <td class="ng-binding">Extr. a compensar</td>
+                                    <td></td>
+                                    <td>
+                                        <app-modal-compensar></app-modal-compensar>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="container-xxl w-100 p-3 mt-3 mw-100" id="solicitud">
+                    <header>
+                        <h5 class="mt-2">Solicitudes</h5>
+                    </header>
+                    <div id="ajustes-request" >
+                        <fieldset>
+                            <div class="checkbox">
+                                <label class="ng-binding">
+                                    <input type="checkbox" name="companyRequestCancellationOptions">
+                                    Cancelaciones con autorización<br>
+                                    <small class="ng-binding">Los responsables autorizarán las cancelaciones de los empleados</small>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="container-xxl w-100 p-3 mt-3 mw-100 d-flex justify-content-between" id="tablon">
+                    <header>
+                        <h5 class="mt-2">Reglas</h5>
+                    </header>
+                    <app-modal-reglas class="ml-auto mb-5"></app-modal-reglas> 
+                </div>
+
+                <div class="container-xxl w-100 p-3 mt-3 mw-100 d-flex justify-content-between" id="tablon">
+                    <header>
+                        <h5 class="mt-2">Solicitudes masivas</h5>
+                    </header>
+                    <app-modal-solicitudes class="ml-auto mb-5"></app-modal-solicitudes> 
+                </div>
+
+                <div class="container-xxl w-100 p-3 mt-3 mw-100 d-flex justify-content-between" id="tablon">
+                    <header>
+                        <h5 class="mt-2">Asignaciones masivas</h5>
+                    </header>
+                    <app-modal-asignaciones class="ml-auto mb-5"></app-modal-asignaciones> 
+                </div>
+            </div>  
+        </div>
+    </div>
+

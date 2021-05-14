@@ -1,0 +1,199 @@
+<div class="background"></div>
+<div class="fondo bg-white border-1 px-5">
+    <div class="flex-row bg-light">
+        <div id ="leftSide">
+            <div class="container-xxl p-3 mt-3 mw-100 mb-3" id="tablon">
+                <header>
+                    <h4 class="mt-2">Activación</h4>
+                </header>
+                <div id="ajustes-request" class="in" style="height: auto;">
+                    <fieldset class="container pt-0 pb-0">
+                        <div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Jornada no finalizada</label>
+                                <br>
+                                <small class="ng-binding">Se notificará al día siguiente de no registrar el fichaje</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Nueva solicitud (de disfrute a corto plazo)</label>
+                                <br>
+                                <small class="ng-binding">Se avisará a los responsables de la nueva solicitud si su disfrute es en los próximos 15 días</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Solicitud autorizada (de disfrute a corto plazo)</label>
+                                <br>
+                                <small class="ng-binding">Se avisará a los supervisores de la solicitud autorizada si su disfrute es en los próximos 15 días</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Nueva solicitud (de disfrute a largo plazo)</label>
+                                <br>
+                                <small class="ng-binding">Se avisará a los responsables de la nueva solicitud si su disfrute es más allá de los próximos 15 días</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Solicitud autorizada (de disfrute a largo plazo)</label>
+                                <br>
+                                <small class="ng-binding">Se avisará a los supervisores de la solicitud autorizada si su disfrute es más allá de los próximos 15 días</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Aviso de edición de jornada</label>
+                                <br>
+                                <small class="ng-binding">El manager recibirá la modificación de un fichaje</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Presencia pendiente de confirmación</label>
+                                <br>
+                                <small class="ng-binding">Se avisará a los usuarios para confirmar sus jornadas realizadas</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Turno modificado</label>
+                                <br>
+                                <small class="ng-binding">Se avisará a los empleados cuando se les cambie su horario/turno</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Nueva solicitud masiva</label>
+                                <br>
+                                <small class="ng-binding">Se notificará a todos los empleados de cambios masivos en su perfil</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Solicitud masiva cancelada</label>
+                                <br>
+                                <small class="ng-binding">Se avisará de la cancelación de permisos asignados por el administrador</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Nuevo documento recibido</label>
+                                <br>
+                                <small  class="ng-binding">Los documentos compartidos a los usuarios se les notificará para su consulta</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Documento firmado</label>
+                                <br>
+                                <small class="ng-binding"></small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Firma solicitada</label>
+                                <br>
+                                <small class="ng-binding"></small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Resumen semanal</label>
+                                <br>
+                                <small class="ng-binding">El manager recibirá aviso de todas las solicitudes e incidencias pendientes de gestionar</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Nuevo mensaje en el tablón de anuncios</label>
+                                <br>
+                                <small  class="ng-binding">Se avisará de nuevos mensajes en el dashboard de cada empleado</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+        <div id="rightSide"> 
+            <div class="container-xxl p-3 mt-3 mw-100 d-flex justify-content-between" id="tablond">
+                <header>
+                    <h4 class="mt-2">Plantillas de envío</h4>
+                </header>
+                <div class="actions mt-2 float-right">
+                    <select class="form-control" ng-model="filter.LanguageId" ng-options="i.LanguageId as i.Name for i in languages" ng-change="load()">
+                        <option value="0">Español</option>
+                        <option value="1">English</option>
+                        <option value="2">Français</option>
+                        <option value="3">Català</option>
+                        <option value="4">Português</option>
+                        <option value="5">Italiano</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+

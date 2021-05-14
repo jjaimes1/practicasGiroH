@@ -1,0 +1,82 @@
+<ng-template #contenidoAsignaciones let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Añadir asignación</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-9">
+                <select class="form-control ng-pristine ng-valid" ng-model="$parent.agreementId" ng-options="i.AgreementId as i.Name for i in agreements" ng-change="agreementChanged()"><option value="0">girohost</option></select>
+            </div>
+            <div class="col-sm-3 ng-binding">
+                Convenio
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <select class="form-control ng-pristine ng-valid" ng-model="allocation.AgreementEventId" ng-options="i.AgreementEventId as i.Name|translate for i in agreementEvents" ng-change="agreementEventChanged()"><option value="0">Vacaciones</option><option value="1">Ajuste del año anterior</option></select>
+            </div>
+        </div>
+        <div class="row">
+            <!-- ngIf: agreementEvent.UseDays --><div class="col-sm-3 ng-scope" ng-if="agreementEvent.UseDays">
+                <input class="form-control ng-pristine ng-valid ng-valid-number" ng-model="allocation.NumberOfDays" ng-change="checkNumber(allocation.NumberOfDays)" type="number">
+                <label class="error ng-binding">Días incorrectos</label>
+            </div><!-- end ngIf: agreementEvent.UseDays -->
+            <!-- ngIf: agreementEvent.UseDays --><div class="col-sm-3 ng-binding ng-scope" ng-if="agreementEvent.UseDays">
+                Días
+            </div><!-- end ngIf: agreementEvent.UseDays -->
+            <!-- ngIf: !agreementEvent.UseDays -->
+            <!-- ngIf: !agreementEvent.UseDays -->
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <select class="form-control ng-pristine ng-valid" ng-model="allocation.OfficeId" ng-options="i.OfficeId as i.Name for i in offices"><option value="" class="ng-binding">Todos los centros</option><option value="0">girohost</option></select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <select class="form-control ng-isolate-scope ng-pristine ng-valid" ng-model="allocation.DepartmentId" indent-select="" options="departments">
+                    <option value="" class="ng-binding">Todos los departamentos</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="select2-container select2-container-multi form-control ng-isolate-scope ng-pristine ng-valid" id="s2id_autogen3">    <ul class="select2-choices">  <li class="select2-search-field">    <input type="text" autocomplete="off" class="select2-input select2-default" style="width: 0px;">  </li></ul><div class="select2-drop select2-drop-multi" style="display:none;">   <ul class="select2-results">   </ul></div></div><input type="hidden" class="form-control ng-isolate-scope ng-pristine ng-valid select2-offscreen" tagging="" ng-model="selectedSkillsNames" tags="skillsKeys" placeholder="Habilidades" update="updateSkills(selection)" value="" tabindex="-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <input type="text" class="form-control ng-pristine ng-invalid ng-invalid-required" ng-required="allocation" ng-model="allocation.Description" placeholder="Descripción" required="required">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="input-group datepicker">
+                    <label class="ng-binding">Fecha inicio</label>
+                    <input type="text" ng-disabled="isDisabled" class="form-control ng-isolate-scope ng-pristine ng-valid hasDatepicker" datepicker="" ng-model="$parent.uiStartDate" currentdate="$parent.allocation.InitialDate" close="updateInitialDate(date)" datetrigger="'../images/date-picker-btn-2.jpg '" id="dp1620286104245"><img class="ui-datepicker-trigger" src="../images/date-picker-btn-2.jpg " alt="..." title="...">
+                    <label class="error ng-binding">Fecha requerida</label>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="input-group datepicker">
+                    <label class="ng-binding">Fecha fin</label>
+                    <input type="text" ng-disabled="isDisabled" class="form-control ng-isolate-scope ng-pristine ng-valid hasDatepicker" datepicker="" ng-model="$parent.uiEndDate" currentdate="$parent.allocation.ExpirationDate" close="updateExpirationDate(date)" datetrigger="'../images/date-picker-btn-2.jpg '" id="dp1620286104246"><img class="ui-datepicker-trigger" src="../images/date-picker-btn-2.jpg " alt="..." title="...">
+                    <label class="error ng-binding">Fecha requerida</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary ng-binding">Aceptar</button>
+        <button class="btn btn-danger" type="button" (click)="modal.close()">Cancelar</button>
+    </div>
+</ng-template>
+
+<!-- <button type="button" class="btn btn-outline-danger" (click)="openCalendar(contenidoCalendar)">Lanzar modal</button> -->
+<button type="button" class="btn btn-dark btn-sm justify-center" (click)="openAsignaciones(contenidoAsignaciones)">Añadir<i-feather name="plus-circle" class="fea icons"></i-feather></button>

@@ -1,0 +1,29 @@
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="integrations-card">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-4 col-md-4">
+                                <img src="../assets/images/logo-biostar.png">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-8">
+                                <div class="integrations-info">
+                                    <h5>Biostar</h5>
+                                    <div class="form-group m-0">
+                                        <select class="form-control ng-pristine ng-valid" ng-model="officeId" ng-options="office as office.Name for office in offices"><option value="" class="ng-binding">--Seleccionar centro--</option><option value="0">gimenezsl</option></select>
+                                    </div>
+                                    <div class="integration-version">
+                                        <!-- <p>Versión del Conector 1.3</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 download">
+                                <button ng-disabled="submiting || officeId == null" ng-class="{'btn-link-active': submiting || officeId != null }" class="btn btn-link ng-binding" target="_blank" href="" btn-loading="submiting" ng-click="downloadFile(doc)" disabled="disabled">Descargar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

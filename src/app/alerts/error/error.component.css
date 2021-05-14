@@ -1,0 +1,76 @@
+body{
+    overflow:hidden;
+}
+
+.error{
+    background: #ff9b9b;
+    padding: 7px 40px;
+    min-width:100%;
+    min-height: 25px;
+    position:absolute;
+    right: 0;
+    top:5px;
+    overflow:hidden;
+    border-radius: 4px;
+    border-left: 8px solid #f14d4d;
+    z-index: 100;
+    display: flex;
+}
+
+.error.show{
+    animation: show_slide 1s ease forwards;
+}
+@keyframes show_slide{
+    0%{
+        transform: translateX(100%);
+    }
+    40%{
+        transform: translateX(-10%);
+    }
+    80%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-10px);
+    }
+}
+
+.error.hide{
+    display:none;
+}
+
+.error .fa-check-circle{
+    position:absolute;
+    left:20px;
+    top:50%;
+    transform: translateY(-50%);
+    color:#ce0000;
+    font-size:20px
+}
+
+.error .msg{
+    padding: 0 20px;
+    color:#ce0000;
+    font-size:15px;
+}
+
+.error .close-btn {
+    position:absolute;
+    right:0px;
+    top:50%;
+    transform: translateY(-50%);
+    background:#f76565;
+    padding: 20px 18px;
+    cursor:pointer;
+}
+
+.close-btn:hover{
+    background: #ff6666;
+
+}
+
+.close-btn .fa-times{
+    color:#ce0000;
+    font-size:22px;
+    line-height: 40px;
+}

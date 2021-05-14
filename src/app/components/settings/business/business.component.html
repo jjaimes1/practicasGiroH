@@ -1,0 +1,67 @@
+<div class="background"></div>
+    <div class="fondo bg-white border-1 px-5">
+        <div class="flex-row bg-light">
+            <div id ="leftSide">
+                <div class="container-xxl p-3 mt-3 mw-100 d-flex justify-content-between" id="tablon">
+                    <h5 class="mt-2">Empresa</h5>
+                    <div class="text-right">
+                        <button type="button" class="btn btn-dark btn-sm">Modificar</button>
+                    </div>
+                </div>
+
+                <div class="container-xxl p-3 mt-3 mw-100 d-flex justify-content-between" id="tablon">
+                    <h5 class="mt-2">Colores corporativos</h5>
+                    <div class="text-right">
+                        <button type="button" class="btn btn-dark btn-sm">Modificar</button> 
+                    </div>
+                </div>
+
+                <div class="container-xxl p-3 mt-3 mw-100 d-flex justify-content-between" id="tablon">
+                    <h5 class="mt-2">Centros</h5>
+                        <div class="text-right">
+                            <app-modal-centros class="ml-auto mb-5"></app-modal-centros>
+                        </div>
+                </div>
+
+                <div class="container-xxl p-3 mt-3 mw-100 d-flex justify-content-between" id="tablon">
+                    <h5 class="mt-2">Sedes</h5>
+                        <div class="text-right">
+                            <app-modal-sedes class="ml-auto mb-5"></app-modal-sedes>
+                        </div>
+                </div>
+
+                <div class="container-xxl p-3 mt-3 mw-100 d-flex justify-content-between" id="tablon">
+                    <h5 class="mt-2">Habilidades de los empleados</h5>
+                        <div class="text-right">
+                            <app-modal-habilidad class="ml-auto mb-5"></app-modal-habilidad>
+                        </div>
+                </div>
+
+                <div class="container-xxl p-3 mt-3 mw-100 d-flex justify-content-between" id="tablon">
+                    <h5 class="mt-2">Atributos de los empleados</h5>
+                        <div class="text-right">
+                            <app-modal-atributos class="ml-auto mb-5"></app-modal-atributos>
+                        </div>
+                </div>
+            </div>
+    
+            <div id="rightSide"> 
+                <div class="container-xxl w-100 p-3 mt-3 mw-100 d-flex justify-content-between" id="cargo">
+                    <div class="d-flex">
+                        <h5 class="text-center mt-1">Departamentos</h5>
+                    </div>
+                    <div class="text-right">
+                        <app-modal-departamentos class="ml-auto mb-5"></app-modal-departamentos> 
+                    </div>
+                </div>
+                <div class="container-xxl w-100 p-3 mt-3 mw-100 d-flex justify-content-between" id="cargo">
+                    <h5 class="text-center mt-1">Cargos</h5>
+
+                    <div class="text-right">
+                        <app-modal-cargos class="ml-auto mb-5"></app-modal-cargos> 
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </div>
+

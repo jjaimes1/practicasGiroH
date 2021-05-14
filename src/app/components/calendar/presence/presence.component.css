@@ -1,0 +1,14 @@
+.fondo{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.flex-row{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin:20px;
+    width:100%;
+    padding: 20px;
+}

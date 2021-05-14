@@ -1,0 +1,30 @@
+<div>
+    <li a class="nav-link-ref" routerLink ="/dashboard"></li>
+    <app-dashboard></app-dashboard>
+</div>
+
+<li><a class="nav-link-ref" routerLink ="/components/dashboard/corporate">Corporate</a></li>
+<li><a class="nav-link-ref" routerLink ="/components/dashboard/personal">Personal</a></li>
+
+<li><a class="nav-link-ref" routerLink ="/components/attendace/self-attendace">My attendance</a></li>
+<li><a class="nav-link-ref" routerLink ="/components/attendace/corporate-attendance">Corporate</a></li>
+
+<li><a class="nav-link-ref" routerLink ="/components/documents/corporate-documents">Corporate</a></li>
+<li><a class="nav-link-ref" routerLink ="/components/documents/my-documents">My Documents</a></li>
+<li><a class="nav-link-ref" routerLink ="/components/documents/employees">Employees</a></li>
+
+<li><a class="nav-link-ref" routerLink ="/components/team/team-status">Team status</a></li>
+<li><a class="nav-link-ref" routerLink ="/components/team/team-roles">Team roles</a></li>
+
+<li><a class="nav-link-ref" routerLink ="components/settings/personalize">Personalize</a></li>
+<li><a class="nav-link-ref" routerLink ="components/settings/business">Business</a></li>
+<li><a class="nav-link-ref" routerLink ="components/settings/setting-roles">Roles</a></li>
+<li><a class="nav-link-ref" routerLink ="components/settings/subscription">Subscription</a></li>
+<li><a class="nav-link-ref" routerLink ="components/settings/integrations">Integrations</a></li>
+
+
+<div>
+    <li><a class="nav-link-ref" routerLink ="/components/dashboard/corporate">Corporate</a></li>
+    <li><a class="nav-link-ref" routerLink ="/components/dashboard/personal">Personal</a></li>
+</div>
+

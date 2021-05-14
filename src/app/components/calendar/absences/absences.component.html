@@ -1,0 +1,57 @@
+<div class="wrapper-calendar my-4">
+    <div class="header-calendar center">
+        <div>
+            <button (click)="changeMonth(-1)" class="btn">Antes</button>
+        </div>
+        <h1>{{dateSelect | date: 'MMMM, yyyy'}}</h1>
+        <div>
+            <button (click)="changeMonth(1)" class="btn">Siguiente</button>
+        </div>
+    </div>
+    <ol>
+        <li *ngFor="let day of week" class="day-name">{{day | slice:0:3}}</li>
+        <li id="{{dateValue}}" (click)="clickDay(day)" [style.gridColumnStart]="first ? day?.indexWeek: 'auto'"
+            *ngFor="let day of monthSelect;let first=first">
+            <div style="width: 100%; height: 80px;">
+                <div class="w-100 h-100 d-inline">
+                    <div>
+                        <span (click)="toggleModal()"class="mt-1">{{day?.value}}</span>
+                    </div>
+                    <div>
+                        {{eventSpan}}
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ol>
+</div>
+<hr>
+<div class="mb-5 d-inline">
+    <div class="d-flex">
+        <p class="mx-auto">
+            Fecha: {{dateValue | date}}
+        </p>
+    </div>
+    <div class="mt-2 mb-4 d-flex">
+        <button *ngIf="showModal"class="mx-auto" type="button" (click)="eventModal(contenido)">Agregar evento</button>
+    </div>
+</div>
+
+<ng-template #contenido let-modal>
+    <div class="modal-header d-flex">
+        <h4 class="modal-title">Descripcion del evento</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form [formGroup]="eventForm" (submit)="guardarEvento()">
+        <div class="modal-body">
+            Event:
+            <input [(ngModel)]="event.input" type="text" class="textSize form-control">
+        </div>
+        <div class="modal-footer">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+</ng-template>

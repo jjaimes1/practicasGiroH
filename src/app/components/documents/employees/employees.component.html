@@ -1,0 +1,51 @@
+<div class="p-4 border-1 px-5">
+    <div class="container-fluid p-3 bg-white rounded" id="principal">        
+        <div class="row p-2">
+            <h4 class="p-2 text-dark font-weight-bold">Empleados - Documentos</h4>         
+            <div class="actions ml-auto w-25 p-2" ng-if="!requestView">
+                <input type="text" class="form-control ng-pristine ng-valid" name="searchQuery" ng-change="searchDocsByQuery(query)" ng-model="query" ng-model-options="{ debounce: 400 }" placeholder="Buscar documentos o etiquetas…">
+            </div>  
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-4 border rounded">
+                    <div class="wrapper">
+                        <form class="form-row align-items-center" id="formprueba"> 
+                            <div class="input-group p-3">
+                                <input class="form-control form-inline form-control-sm mb-5" type="text" placeholder="Buscar empleado" aria-label="Search">
+                                <div class="input-group-append">
+                                    <button class="input-group-text mb-5">
+                                        <i-feather name="Search" class="fea icon-sm icons d-flex"></i-feather>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    <div class="wrapper-in">
+                        <div class="inner-scroll">
+                            <div class="user ng-scope highlight" ng-repeat="user in users | orderBy | filter: filterUsers.Keywords" ng-class=" {'highlight' : selectedUser === user}">
+                                <a class="avatar-dashboard-request ng-isolate-scope ng-pristine ng-valid" avatar="" ng-model="user" avwidth="30" href="/#/users/424938"></a><a ng-click="select(user)">
+                                    <h4 class="ng-binding m-0 fons-usuari">&nbsp;lomem ipsum</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-8 p-4">
+                    <div class="p-3">
+                    <h3 class="text-muted">Documentos de lomem ipsum</h3>
+                    <br>
+                    <b class="ng-binding text-primary p-3">DOCUMENTOS VISIBLES POR lomem ipsum</b>
+                    <br>
+                    <app-modal-corporate-document></app-modal-corporate-document>
+                    </div>
+                    <div class="p-3">
+                    <b class="ng-binding text-primary p-3">DOCUMENTOS VISIBLES POR EL ADMINISTRADOR</b>
+                    <br>
+                    <app-modal-corporate-document></app-modal-corporate-document>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

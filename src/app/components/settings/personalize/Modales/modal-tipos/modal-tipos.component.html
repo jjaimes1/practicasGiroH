@@ -1,0 +1,57 @@
+<ng-template #contenidoTipos let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Añadir tipología de motivo</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-content">
+        <form role="form" my-form="" novalidate="" ng-model="submited" name="AgreementEventTypeForm" ng-class="{'ng-submited': submited}" class="ng-isolate-scope ng-pristine ng-invalid ng-invalid-required">
+            <div class="modal-body">
+                <div class="row">
+                    <div ng-class="{'col-md-6': type.CompanyId <= 0, 'col-md-12': type.CompanyId > 0}" class="col-md-12">
+                        <div class="form-group">
+                            <label class="text-form ng-binding">Nombre</label>
+                            <input class="form-control ng-pristine ng-invalid ng-invalid-required" required="" type="text" ng-model="type.viewName" placeholder="Nombre" ng-disabled="type.CompanyId <= 0">
+                        </div>
+                    </div>
+                    <!-- ngIf: type.CompanyId <= 0 -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="text-form ng-binding">Tipo de motivo</label>
+                            <select class="form-control ng-pristine ng-valid" ng-model="type.IsPresence" ng-change="resetConfig()" ng-disabled="type.CompanyId <= 0">
+                                <option value="undefined" style="display:none;" class="ng-binding">Selecciona tipo</option>
+                                <!-- ngRepeat: presence in CONSTANTS.PRESENCE_TYPE_SELECTOR --><option ng-repeat="presence in CONSTANTS.PRESENCE_TYPE_SELECTOR" ng-value="presence.value" ng-selected="!!presence.value === type.IsPresence" class="ng-binding ng-scope" value="">
+                                    Ausencia
+                                </option><!-- end ngRepeat: presence in CONSTANTS.PRESENCE_TYPE_SELECTOR --><option ng-repeat="presence in CONSTANTS.PRESENCE_TYPE_SELECTOR" ng-value="presence.value" ng-selected="!!presence.value === type.IsPresence" class="ng-binding ng-scope" value="true">
+                                    Presencia
+                                </option><!-- end ngRepeat: presence in CONSTANTS.PRESENCE_TYPE_SELECTOR -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="text-form ng-binding">Contabilizar como</label>
+                            <select class="form-control ng-pristine ng-valid" ng-model="type.UseDays" ng-change="checkFractionDay()" ng-disabled="type.CompanyId <= 0">
+                                <option value="" class="ng-binding">Selecciona</option>
+                                <option value="true" class="ng-binding">Días</option>
+                                <option value="false" class="ng-binding">Horas</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- ngIf: type.UseDays !== '' -->
+                <!-- ngIf: type.IsPresence !== 'undefined' -->
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary ng-binding">Aceptar</button>
+        <button class="btn btn-danger" type="button" (click)="modal.close()">Cancelar</button>
+    </div>
+</ng-template>
+
+<!-- <button type="button" class="btn btn-outline-danger" (click)="openCalendar(contenidoCalendar)">Lanzar modal</button> -->
+<button type="button" class="btn btn-dark btn-sm justify-center" (click)="openTipos(contenidoTipos)">Añadir<i-feather name="plus-circle" class="fea icons"></i-feather></button>

@@ -1,0 +1,25 @@
+<ng-template #contenidoAtributos let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Atributos</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <input class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-pattern" ng-model="attribute.Name" type="text" required="" ng-pattern="attributePattern" placeholder="Nombre">
+                <label class="error ng-binding">Nombre incorrecto</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary ng-binding">Aceptar</button>
+        <button class="btn btn-danger" type="button" (click)="modal.close()">Cancelar</button>
+    </div>
+</ng-template>
+
+<!-- <button type="button" class="btn btn-outline-danger" (click)="openCalendar(contenidoCalendar)">Lanzar modal</button> -->
+<button type="button" class="btn btn-dark btn-sm justify-center" (click)="openAtributos(contenidoAtributos)">Añadir<i-feather name="plus-circle" class="fea icons"></i-feather></button>

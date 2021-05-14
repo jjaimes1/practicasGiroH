@@ -1,0 +1,239 @@
+<div class="background"></div>
+<div class="fondo bg-white border-1 px-5 mb-3">
+    <div class="flex-row bg-light">
+        <div class="izquierda mb-3">
+            <div class="container-xxl p-3 mt-3" id="contenidoPerfil">
+                <div class="mb-4    ">
+                     <h5>Mi Perfil</h5>
+                </div>
+                <div class="d-flex w-100">
+                    <div class="w-25">
+                    <span class="circuloPerfil text-center d-flex ml-3"><p class="mx-auto my-auto w-100">NA</p></span>
+                    </div>
+                    <h5 class="w-75"> Nombre y Apellido </h5>
+                </div>
+                <div class="container xxl p-3 mt-3 d-flex">
+                    <div class="mx-auto text-center">
+                        <h6> Esta semana </h6>
+                        <div class="container xxl p-4 mt-2 d-flex perfilConfiguration">
+                            <div class="mx-auto">
+                                <p class="redC">0h 42m</p>
+                                <p>De 40h</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-auto text-center"> 
+                        <h6> Abril </h6>
+                        <div class="container xxl p-4 mt-2 d-flex perfilConfiguration">
+                            <div class="mx-auto">
+                                <p class="redC">0h 42m</p>
+                                <p>De 144h</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-auto text-center">
+                        <h6> 2021 </h6>
+                        <div class="container xxl p-4 mt-2 d-flex perfilConfiguration">
+                            <div class="mx-auto">
+                                <p class="redC">0h 42m</p>
+                                <p></p>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="container-xxl p-3 mt-3 d-flex" id="contenidoSolicitudes">
+                <div class="w-100">
+                    <h5>
+                        Solicitudes
+                    </h5>
+                    <div class="contentRequests container-xxl pt-3 mt-3 w-100">
+                        <app-modal-personal></app-modal-personal>
+                    </div>
+                </div>
+            </div>
+            <div class="container-xxl p-3 mt-3 d-flex" id="tablon">
+                <div class="w-100">
+                    <h5 class="mt-2">
+                        Tablon de Anuncios
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="centro mb-3">
+            <div class="container-xxl p-3 my-3 " id="contenidoCentro">
+                <div>
+                    <h5> Hoy </h5>
+                </div>
+                <div class="centroConfiguration bg-white container-xxl w-100 p-3 my-3">
+                    <div>
+                        <div>
+                            <h6><span class="fa fa-circle grn mr-1"></span>TU JORNADA</h6>
+                        </div>
+                    </div>
+                    <div class="d-flex my-3" id="bckgrnd">
+                        <div class="mx-auto">
+                            <h6>Nombre</h6>
+                        </div>
+                    </div>
+                    <div class="mt-2 w-100">
+                        <div class="d-flex w-100">
+                            <div class="mx-auto">
+                                <div class="d-flex">
+                                    <h6 class="mx-auto">Horarios:</h6>
+                                </div>
+                                <p>
+                                    09:00:00 - 14:00:00
+                                </p>
+                                <p>
+                                    15:00:00 - 18:00:00
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100 d-flex">
+                        <button type="button" class="buttonConfiguration btn my-4 mx-auto">Entrar</button>
+                    </div>
+                </div>
+                <div class="centroConfiguration bg-white container-xxl w-100 p-3 my-3">
+                    <div>
+                        <div class="mb-3">
+                            <h6>EVENTO DE EMPRESA</h6>
+                        </div>
+                        <div class="borderTop">
+                            <div class="w-100 d-flex my-3">
+                                <p class="mx-auto">No hay eventos de empresa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="centroConfiguration bg-white container-xxl w-100 p-3 my-3 ">
+                    <div>
+                        <div class="mb-3">
+                            <h6><span class="fa fa-circle blu mr-1"></span>FESTIVOS</h6>
+                        </div>
+                    </div>
+                    <div class="borderTop">
+                        <div class="w-100 d-flex my-3">
+                            <p class="mx-auto">No es festivo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="derecha mb-3">
+            <div class="derechaConfiguration container-xxl p-3 my-3">
+                <div class="w-100">
+                    <div>
+                        <h5>Equipo</h5>
+                    </div>
+                </div>
+                <div class="bg-white d-flex justify-content-center my-3 w-100" id="boxedSearch">
+                    <div class="ml-4 my-3 w-75">
+                        <select name="trabajo" class="form-control form-inline form-control-sm">
+                            <option value="todosTrabajadores">Todos</option>
+                            <option value="disponibles">Disponibles</option>
+                            <option value="noFichado">No han fichado</option>
+                            <option value="noDisponibles">No disponibles</option>
+                            <option value="noTrabajanHoy">No trabajan hoy</option>
+                        </select>
+                    </div>
+                    <div class="ml-auto">
+                        <button class="buttonClean mt-4 mr-4">
+                            <i-feather name="Repeat" class="fea icon-sm icons d-flex"></i-feather>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="derechaConfiguration container-xxl p-3 my-3 mw-100">
+                <div class="w-100">
+                    <div>
+                        <h5>Proximamente</h5>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex w-100 my-3">
+                        <li class="fecha">
+                            <dl class="pull-left d-flex">
+                                <div class="mx-auto">
+                                    <dd class="dia">23</dd>
+                                    <dd class="semana">vie.</dd>
+                                </div>
+                            </dl>
+                        </li>
+                        <div class="nombreFiesta my-auto d-flex">
+                            <div class="mx-auto">
+                                <p>NOMBRE SL</p>
+                                <p>09:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex w-100 my-3">
+                        <li class="fecha">
+                            <dl class="pull-left d-flex">
+                                <div class="mx-auto">
+                                    <dd class="dia">24</dd>
+                                    <dd class="semana">sáb.</dd>
+                                </div>
+                            </dl>
+                        </li>
+                        <div class="nombreFiesta my-auto d-flex">
+                            <div class="mx-auto">
+                                <p>DESCANSO SEMANAL</p>
+                                <p>Todo el dia </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex w-100 my-3">
+                        <li class="fecha">
+                            <dl class="pull-left d-flex">
+                                <div class="mx-auto">
+                                    <dd class="dia">25</dd>
+                                    <dd class="semana">dom.</dd>
+                                </div>
+                            </dl>
+                        </li>
+                        <div class="nombreFiesta my-auto d-flex">
+                            <div class="mx-auto">
+                                <p>DESCANSO SEMANAL</p>
+                                <p>Todo el dia</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="d-flex w-100 my-3">
+                        <li class="fecha">
+                            <dl class="pull-left d-flex">
+                                <div class="mx-auto">
+                                    <dd class="dia">26</dd>
+                                    <dd class="semana">lun.</dd>
+                                </div>
+                            </dl>
+                        </li>
+                        <div class="nombreFiesta my-auto d-flex">
+                            <div class="mx-auto">
+                                <p>NOMBRE SL</p>
+                                <p>09:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex w-100 my-3">
+                        <li class="fecha">
+                            <dl class="pull-left d-flex">
+                                <div class="mx-auto">
+                                    <dd class="dia">27</dd>
+                                    <dd class="semana">mar.</dd>
+                                </div>
+                            </dl>
+                        </li>
+                        <div class="nombreFiesta my-auto d-flex">
+                            <div class="mx-auto">
+                                <p>NOMBRE SL</p>
+                                <p>09:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

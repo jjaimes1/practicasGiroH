@@ -1,0 +1,32 @@
+<ng-template #contingut let-modal>
+    <div class="modal-header justify-content-center">
+        <div class="container">
+            <div class="row">
+              <div class="col text-center">
+                <h5 class="text-center">Confirmar horario
+                    <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h5>         
+              </div>
+            </div>
+        </div>
+        <hr>       
+    </div>    
+    <div class="modal-body justify-content-center">
+        <p class="text-center">Confirmar horario</p>
+        <div class="container">
+            <div class="row">
+              <div class="col text-center">
+                <button class="btn bg-primary text-white" aria-label="close" type="button" (click)="modal.dismiss()">
+                    <span aria-hidden="true">Aceptar</span>
+                </button>
+              </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<button class="btn btn-action w-75 form-control ng-binding ng-scope bg-primary text-white p-1" data-target="#diary-confirm" data-toggle="modal" ng-if="isUserAcceptable" (click)="OpenSM(contingut)">
+    Confirmar <i class="fa fa-check"></i>
+</button>

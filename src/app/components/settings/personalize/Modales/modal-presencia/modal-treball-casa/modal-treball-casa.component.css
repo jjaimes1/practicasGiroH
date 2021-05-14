@@ -1,0 +1,10 @@
+.buttonConfiguration {
+    font-size: 14px;
+    background-color:transparent;
+    color: gray;
+    border-style: none;
+}
+
+#icono{
+    cursor: pointer !important;
+}

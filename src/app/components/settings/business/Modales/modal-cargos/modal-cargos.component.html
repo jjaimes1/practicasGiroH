@@ -1,0 +1,65 @@
+<ng-template #contenidoCargos let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Cargos</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="text-form ng-binding">ID</label>
+                    <input type="text" class="form-control ng-pristine ng-valid ng-valid-pattern" id="jobTitle-JobTitleNumber" placeholder="ID" ng-model="jobTitle.JobTitleNumber" ng-pattern="/^[A-Za-z0-9-_]*$/" ng-change="showWarning()">
+                        <label class="error ng-binding">Únicamente se permiten may., min., "-" y "_"</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="text-form ng-binding">Nombre del cargo</label>
+                    <input type="text" class="form-control ng-pristine ng-invalid ng-invalid-required" id="jobTitle-name" placeholder="Nombre del cargo" ng-model="jobTitle.Name" required="">
+                    <label class="error ng-binding">Nombre requerido</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <br>
+            <div class="col-sm-12">
+                <label class="text-form ng-binding">Color</label>
+            </div>
+            <div class="col-sm-12 text-center">
+                <select id="colorpicker-picker-longlist1" name="colorpicker-picker-longlist" simplecolorpicker="" ng-model="jobTitle.Color" class="ng-isolate-scope ng-pristine ng-valid" style="display: none;"><option value="? string:  ?"></option>
+                    <option value="#F02B27">#F02B27</option>
+                    <option value="#A82623">#A82623</option>
+                    <option value="#FD9426">#FD9426</option>
+                    <option value="#F8BB00">#F8BB00</option>
+                    <option value="#53D769">#53D769</option>
+                    <option value="#3B984A">#3B984A</option>
+                    <option value="#00D4E6">#00D4E6</option>
+                    <option value="#3CABDA">#3CABDA</option>
+                    <option value="#6859D3">#6859D3</option>
+                    <option value="#44388A">#44388A</option>
+                    <option value="#F347FF">#F347FF</option>
+                    <option value="#BA3067">#BA3067</option>
+                    <option value="#DCC85E">#DCC85E</option>
+                    <option value="#BEA000">#BEA000</option>
+                    <option value="#846F00">#846F00</option>
+                    <option value="#8D8D8D">#8D8D8D</option>
+                    <option value="#534F4F">#534F4F</option>
+                    <option value="#1C1C1C">#1C1C1C</option>
+                    <option value=" ">#FFFFFF</option>
+                </select><span class="simplecolorpicker inline fontawesome"><span class="color" title="#F02B27" style="background-color: #F02B27;" data-color="#F02B27" role="button" tabindex="0"></span><span class="color" title="#A82623" style="background-color: #A82623;" data-color="#A82623" role="button" tabindex="0"></span><span class="color" title="#FD9426" style="background-color: #FD9426;" data-color="#FD9426" role="button" tabindex="0"></span><span class="color" title="#F8BB00" style="background-color: #F8BB00;" data-color="#F8BB00" role="button" tabindex="0"></span><span class="color" title="#53D769" style="background-color: #53D769;" data-color="#53D769" role="button" tabindex="0"></span><span class="color" title="#3B984A" style="background-color: #3B984A;" data-color="#3B984A" role="button" tabindex="0"></span><span class="color" title="#00D4E6" style="background-color: #00D4E6;" data-color="#00D4E6" role="button" tabindex="0"></span><span class="color" title="#3CABDA" style="background-color: #3CABDA;" data-color="#3CABDA" role="button" tabindex="0"></span><span class="color" title="#6859D3" style="background-color: #6859D3;" data-color="#6859D3" role="button" tabindex="0"></span><span class="color" title="#44388A" style="background-color: #44388A;" data-color="#44388A" role="button" tabindex="0"></span><span class="color" title="#F347FF" style="background-color: #F347FF;" data-color="#F347FF" role="button" tabindex="0"></span><span class="color" title="#BA3067" style="background-color: #BA3067;" data-color="#BA3067" role="button" tabindex="0"></span><span class="color" title="#DCC85E" style="background-color: #DCC85E;" data-color="#DCC85E" role="button" tabindex="0"></span><span class="color" title="#BEA000" style="background-color: #BEA000;" data-color="#BEA000" role="button" tabindex="0"></span><span class="color" title="#846F00" style="background-color: #846F00;" data-color="#846F00" role="button" tabindex="0"></span><span class="color" title="#8D8D8D" style="background-color: #8D8D8D;" data-color="#8D8D8D" role="button" tabindex="0"></span><span class="color" title="#534F4F" style="background-color: #534F4F;" data-color="#534F4F" role="button" tabindex="0"></span><span class="color" title="#1C1C1C" style="background-color: #1C1C1C;" data-color="#1C1C1C" role="button" tabindex="0"></span><span class="color" title="#FFFFFF" style="background-color:  ;" data-color=" " role="button" tabindex="0" data-selected=""></span></span>
+            </div>
+        </div>
+        <!-- ngIf: showDiv && jobTitle.JobTitleId > 0 -->
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary ng-binding">Aceptar</button>
+        <button class="btn btn-danger" type="button" (click)="modal.close()">Cancelar</button>
+    </div>
+</ng-template>
+
+<!-- <button type="button" class="btn btn-outline-danger" (click)="openCalendar(contenidoCalendar)">Lanzar modal</button> -->
+<button type="button" class="btn btn-dark btn-sm justify-center" (click)="openCargos(contenidoCargos)">Añadir<i-feather name="plus-circle" class="fea icons"></i-feather></button>

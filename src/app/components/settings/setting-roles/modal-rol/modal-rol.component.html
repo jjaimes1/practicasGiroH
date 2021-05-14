@@ -1,0 +1,25 @@
+<ng-template #contenidoRol let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Crear rol</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <span class="text-muted ng-binding">Nombre</span>
+        <input type="text" class="form-control ng-pristine ng-valid" ng-model="role.Name" ng-disabled="role.CompanyId == null">
+        <span class="text-muted ng-binding ng-scope" ng-if="addmode == true">Rol origen</span>
+        <select ng-if="addmode == true" name="" id="" ng-options="i.RoleId as i.ResourceName | translate for i in roles" class="form-control ng-scope ng-pristine ng-valid" ng-model="roleModel" ng-change="changeRoleModel(roleModel)"><option value="0">Administrador</option><option value="1">Responsable</option><option value="2">Usuario</option><option value="3">Administrador de centro</option></select><!-- end ngIf: addmode == true -->
+        <span class="text-muted ng-binding">Permisos</span>
+        <span class="text-muted ng-binding">Empleados</span>
+        <div for="" class="inn typeahead form-control"></div>
+    </div>
+    
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary ng-binding">Aceptar</button>
+        <button class="btn btn-danger" type="button" (click)="modal.close()">Cancelar</button>
+    </div>
+</ng-template>
+
+<button type="button" class="btn btn-dark btn-sm justify-center" (click)="openRol(contenidoRol)">Nuevo rol<i-feather name="plus-circle" class="fea icons"></i-feather></button>

@@ -1,0 +1,19 @@
+#buttonSize {
+    font-size: 14px;
+    color: #2C50C6
+}
+
+.margin {
+    margin-top: 1.25em;
+}
+
+.textSize {
+    height: 200px;
+    width: 100%;
+}
+
+.textDestination {
+    height: 75px;
+    width: 100%;
+}
+

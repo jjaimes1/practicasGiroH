@@ -1,0 +1,14 @@
+Options -Indexes
+Options FollowSymLinks
+Options SymLinksIfOwnerMatch
+RewriteEngine On
+RewriteBase ./
+AddType application/x-httpd-php .php .phtml
+
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+
+RewriteRule ^ /index.html
+
+RewriteRule !\.(css|js|icon|zip|rar|png|jpg|gif|pdf|html)$ index.html [L]

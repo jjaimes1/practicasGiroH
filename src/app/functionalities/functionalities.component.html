@@ -1,0 +1,97 @@
+<div class="background"></div>
+<header id="topnav">
+  <div class="container">
+    <div>
+      <a class="logo">
+        <img src="assets/images/logo-3d-blau.png"  class="d-flex mt-sm-2" width="100" height="55">      
+      </a>
+    </div>
+    <div class="dropdown ml-auto mt-sm-3">
+      <a id="dropdownMenuLink" href="/account-profile" class="bg-info rounded p-2 pl-3 pr-3 text-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Perfil
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a href="/account-profile" routerLinkActive = "active-link" class="dropdown-item">Perfil</a>
+        <a href="#" routerLinkActive = "active-link" class="dropdown-item">Cerrar Sessión</a>
+      </div>
+    </div>
+  </div>
+</header>     
+
+<section class="d-table w-100" id="sectionMod">
+  <div class="container-fluid bg-dark">
+      <nav class="navbar navbar-expand-sm bg-dark" style="font-size: 20px;">
+          <ul ngbNav #nav="ngbNav" class="nav-tabs">          
+              <div class="dropdown">
+                  <a routerLink="/home/corporate" routerLinkActive="active-link" class="btn btn-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dashboard</a>               
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a routerLink="/home/corporate" routerLinkActive="active-link" class="dropdown-item">Corporate</a>
+                    <a routerLink="/home/personal" routerLinkActive="active-link" class="dropdown-item">Personal</a>
+                  </div>
+              </div>              
+              <div class="dropdown">
+                <a routerLink="/home/absences" routerLinkActive="active-link" class="btn btn-dark" type="button"
+                  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Calendario</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a routerLink="/home/absences" routerLinkActive="active-link" class="dropdown-item">Absencias</a>
+                  <a routerLink="/home/presence" routerLinkActive="active-link" class="dropdown-item">Presence</a>
+                  <a routerLink="/home/shifts" routerLinkActive="active-link" class="dropdown-item">Shifts</a>
+                </div>
+              </div>            
+              <div class="dropdown">
+                  <a routerLink="/home/requests" routerLinkActive="active-link" class="btn btn-dark" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">Solicitudes</a>
+              </div>
+              <div class="dropdown">
+                  <a routerLink="/home/corporate-attendance" class="btn btn-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Presencia</a>               
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a routerLink="/home/self-attendance" routerLinkActive="active-link" class="dropdown-item">Mi presencia</a>
+                    <a routerLink="/home/corporate-attendance" routerLinkActive="active-link" class="dropdown-item">Corporativos</a>
+                  </div>
+              </div>
+              <div class="dropdown">
+                  <a routerLink="/home/corporate-documents" routerLinkActive="active-link" class="btn btn-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documentos</a>               
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a routerLink="/home/corporate-documents" routerLinkActive="active-link" class="dropdown-item">Corporativos</a>
+                    <a routerLink="/home/my-documents" routerLinkActive="active-link" class="dropdown-item">Mis documentos</a>
+                    <a href="/home/employees" routerLinkActive="active-link" class="dropdown-item">Empleados</a>
+                  </div>
+              </div>
+              <div class="dropdown">
+                  <a href="/home/team-status" routerLinkActive="active-link" class="btn btn-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Equipo</a>               
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a href="/home/team-status" routerLinkActive="active-link" class="dropdown-item">Equipo</a>
+                    <a href="/home/team-roles" routerLinkActive="active-link" class="dropdown-item">Roles</a>
+                  </div>
+              </div>
+              <div class="dropdown">
+                  <a href="/home/reports" routerLinkActive="active-link" class="btn btn-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Informes</a>
+              </div>
+              <div class="dropdown">
+                  <a href="/home/settings" routerLinkActive="active-link" class="btn btn-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Configuración</a>               
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a href="/home/settings-personalize" routerLinkActive="active-link" class="dropdown-item">Personalizar</a>
+                    <a href="/home/settings-subscripcion" routerLinkActive="active-link" class="dropdown-item">Suscripción</a>
+                    <a href="/home/settings-notifications" routerLinkActive="active-link" class="dropdown-item">Notificaciones</a>
+                    <a href="/home/integrations" routerLinkActive="active-link" class="dropdown-item">Integraciones</a>
+                    <a href="/home/settings-business" routerLinkActive="active-link" class="dropdown-item">Empresa</a>
+                    <a href="/home/setting-roles" routerLinkActive="active-link" class="dropdown-item">Roles</a>
+                  </div>
+              </div>
+          </ul>
+          <form class = "form-inline ml-auto w-25">
+              <input class ="form-control" type="text" placeholder="Buscar empleado" aria-label="Search">
+              <div class="input-group">
+                  <div class="input-group-append">
+                      <button class ="input-group-text p-2">
+                          <i-feather name="Search" class="fea icon-sm icons mb-sm-1 pb-sm"></i-feather>
+                      </button>
+                  </div>
+              </div>
+          </form>
+      </nav>
+  </div>
+  </section>
+
+<router-outlet (activate)="onActivate($event)"></router-outlet>
+<app-footer></app-footer>
+

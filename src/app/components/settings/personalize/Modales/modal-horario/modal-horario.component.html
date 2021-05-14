@@ -1,0 +1,56 @@
+<ng-template #contenidoHorario let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Nuevo horario</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="text-form ng-binding">ID</label>
+                    <input type="text" class="form-control ng-pristine ng-valid ng-valid-pattern" id="schedule-ScheduleNumber" placeholder="ID" ng-model="schedule.ScheduleNumber" ng-pattern="/^[A-Za-z0-9-_]*$/">
+                        <label class="error ng-binding">Únicamente se permiten may., min., "-" y "_"</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="text-form ng-binding">Nombre</label>
+                    <input type="text" class="form-control ng-pristine ng-invalid ng-invalid-required" placeholder="Nombre" ng-model="schedule.Name" required="">
+                    <label class="error ng-binding">Nombre requerido</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="text-form ng-binding">Centros</label>
+                    <select class="form-control ng-pristine ng-valid" ng-model="schedule.OfficeId" ng-options="i.OfficeId as i.Name for i in offices"><option value="" class="ng-binding">Todos los centros</option><option value="0">hosting</option></select>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="schedules.length > 0">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label class="text-form ng-binding">Horario</label>
+                    <select class="form-control ng-valid ng-dirty" ng-model="schedule.FromScheduleId" ng-options="i.ScheduleId as i.Name for i in $parent.schedules"><option value="" class="ng-binding">-Ninguno-</option><option value="0">hosting</option></select>
+                </div>
+            </div>
+            <div class="col-md-4 mt-5">
+                <div class="form-group">
+                    <label class="text-form ng-binding">Horario origen</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary ng-binding">Aceptar</button>
+        <button class="btn btn-danger" type="button" (click)="modal.close()">Cancelar</button>
+    </div>
+</ng-template>
+
+<!-- <button type="button" class="btn btn-outline-danger" (click)="openCalendar(contenidoCalendar)">Lanzar modal</button> -->
+<button type="button" class="btn btn-dark btn-sm justify-center" (click)="openHorario(contenidoHorario)">Añadir<i-feather name="plus-circle" class="fea icons"></i-feather></button>

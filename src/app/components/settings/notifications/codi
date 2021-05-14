@@ -1,0 +1,158 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div ng-include="adminUserNotificationsViewURL" ng-controller="UserNotificationsCtrl" class="block block-padding ng-scope"><div class="block block-notifications-config ng-scope">
+                <header>
+                    <a class="accordion-toggle" data-toggle="collapse" href="" data-target="#ajustes-request" accordiontoggle="">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                    <h2 class="ng-binding"><i class="fa fa-bell"></i> Activación</h2>
+                </header>
+                <div id="ajustes-request" class="collapse in">
+                    <fieldset class="container pt-0 pb-0">
+                        <!-- ngRepeat: notification in notifications --><div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Jornada no finalizada</label>
+                                <br>
+                                <small ng-bind-html="notification.description | translate" class="ng-binding">Se notificará al día siguiente de no registrar el fichaje</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div><!-- end ngRepeat: notification in notifications --><div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Nueva solicitud (de disfrute a corto plazo)</label>
+                                <br>
+                                <small ng-bind-html="notification.description | translate" class="ng-binding">Se avisará a los responsables de la nueva solicitud si su disfrute es en los próximos 15 días</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div><!-- end ngRepeat: notification in notifications --><div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Solicitud autorizada (de disfrute a corto plazo)</label>
+                                <br>
+                                <small ng-bind-html="notification.description | translate" class="ng-binding">Se avisará a los supervisores de la solicitud autorizada si su disfrute es en los próximos 15 días</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div><!-- end ngRepeat: notification in notifications --><div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Nueva solicitud (de disfrute a largo plazo)</label>
+                                <br>
+                                <small ng-bind-html="notification.description | translate" class="ng-binding">Se avisará a los responsables de la nueva solicitud si su disfrute es más allá de los próximos 15 días</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div><!-- end ngRepeat: notification in notifications --><div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Solicitud autorizada (de disfrute a largo plazo)</label>
+                                <br>
+                                <small ng-bind-html="notification.description | translate" class="ng-binding">Se avisará a los supervisores de la solicitud autorizada si su disfrute es más allá de los próximos 15 días</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div><!-- end ngRepeat: notification in notifications --><div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Aviso de edición de jornada</label>
+                                <br>
+                                <small ng-bind-html="notification.description | translate" class="ng-binding">El manager recibirá la modificación de un fichaje <a href="https://woffu.force.com/help/s/article/soicita-una-modificacion-en-los-fichajes">Ver más</a></small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div><!-- end ngRepeat: notification in notifications --><div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Presencia pendiente de confirmación</label>
+                                <br>
+                                <small ng-bind-html="notification.description | translate" class="ng-binding">Se avisará a los usuarios para confirmar sus jornadas realizadas</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div><!-- end ngRepeat: notification in notifications --><div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Turno modificado</label>
+                                <br>
+                                <small ng-bind-html="notification.description | translate" class="ng-binding">Se avisará a los empleados cuando se les cambie su horario/turno <a href="https://woffu.force.com/help/s/article/gestiona-los-turnos-de-trabajo">Ver más</a></small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div><!-- end ngRepeat: notification in notifications --><div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Nueva solicitud masiva</label>
+                                <br>
+                                <small ng-bind-html="notification.description | translate" class="ng-binding">Se notificará a todos los empleados de cambios masivos en su perfil <a href="https://woffu.force.com/help/s/article/asigna-de-forma-masiva-vacaciones-y-dias-u-horas-a-compensar">Ver más</a></small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div><!-- end ngRepeat: notification in notifications --><div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Solicitud masiva cancelada</label>
+                                <br>
+                                <small ng-bind-html="notification.description | translate" class="ng-binding">Se avisará de la cancelación de permisos asignados por el administrador</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div><!-- end ngRepeat: notification in notifications --><div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Nuevo documento recibido</label>
+                                <br>
+                                <small ng-bind-html="notification.description | translate" class="ng-binding">Los documentos compartidos a los usuarios se les notificará para su consulta <a href="https://woffu.force.com/help/s/article/como-recibir-comunicados-en-woffu">Ver más</a></small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div><!-- end ngRepeat: notification in notifications --><div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Documento firmado</label>
+                                <br>
+                                <small ng-bind-html="notification.description | translate" class="ng-binding"></small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div><!-- end ngRepeat: notification in notifications --><div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Firma solicitada</label>
+                                <br>
+                                <small ng-bind-html="notification.description | translate" class="ng-binding"></small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div><!-- end ngRepeat: notification in notifications --><div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Resumen semanal</label>
+                                <br>
+                                <small ng-bind-html="notification.description | translate" class="ng-binding">El manager recibirá aviso de todas las solicitudes e incidencias pendientes de gestionar</small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div><!-- end ngRepeat: notification in notifications --><div class="row mb-4 ng-scope" ng-repeat="notification in notifications">
+                            <div class="col-md-10">
+                                <label class="mb-0 ng-binding">Nuevo mensaje en el tablón de anuncios</label>
+                                <br>
+                                <small ng-bind-html="notification.description | translate" class="ng-binding">Se avisará de nuevos mensajes en el dashboard de cada empleado <a href="https://woffu.force.com/help/s/article/tablon-de-anuncios">Ver más</a></small>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <input type="checkbox" ng-model="notification.Active" ng-change="save(notification)" class="ng-pristine ng-valid">
+                            </div>
+                        </div><!-- end ngRepeat: notification in notifications -->
+                    </fieldset>
+                </div>
+            </div></div>
+        </div>
+
+        <div class="col-md-6">
+            
+        </div>
+    </div>
+</div>

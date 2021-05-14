@@ -1,0 +1,69 @@
+<section class="section py-3 px-3 bg-light">
+    <div class="container p-4 bg-white rounded" id="container">
+        <h2><b>Roles</b></h2>
+        <small>El rol <b>Usuario</b> está seleccionado por defecto</small>
+        <app-modal-rol class="ml-auto float-right mb-5"></app-modal-rol> 
+        <div id="equip">
+            <table class="table taula" cellspacing="20">
+                <thead>
+                    <tr>
+                        <th class="titol"><b>Nombre</b></th>
+                        <th class="titol"><b>Empleados</b></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody ng-loading="roles" class="rol">
+                    <!-- Administrador -->
+                    <tr ng-repeat="role in roles" class="ng-scope">
+                        <td ng-if="role.CompanyId == null" class="ng-binding ng-scope">Administrador</td>
+                        <td class="ng-binding">2</td>
+                        <td class="actions">
+                            <a href="" ng-click="setDefaultRole(role)" class="far fa-star" ng-class="{ 'fas fa-star is-blue': role.RoleId === defaultRole.RoleId, 'far fa-star':
+                                role.RoleId !== defaultRole.RoleId }">
+                            </a>
+                            <a href="" data-target="#add-role" ng-click="getRole(role); addmode = false" data-toggle="modal" class="fa fa-pen">
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Responsable -->
+                    <tr ng-repeat="role in roles" class="ng-scope">
+                        <td ng-if="role.CompanyId == null" class="ng-binding ng-scope">Responsable</td>
+                        <td class="ng-binding">0</td>
+                        <td class="actions">
+                            <a href="" ng-click="setDefaultRole(role)" class="far fa-star" ng-class="{ 'fas fa-star is-blue': role.RoleId === defaultRole.RoleId, 'far fa-star':
+                                role.RoleId !== defaultRole.RoleId }">
+                            </a>
+                            <a href="" data-target="#add-role" ng-click="getRole(role); addmode = false" data-toggle="modal" class="fa fa-pen">
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Usuario -->
+                    <tr ng-repeat="role in roles" class="ng-scope">
+                        <td ng-if="role.CompanyId == null" class="ng-binding ng-scope">Usuario</td>
+                        <td class="ng-binding">0</td>
+                        <td class="actions">
+                            <a href="" ng-click="setDefaultRole(role)" class="fa-star fas is-blue" ng-class="{ 'fas fa-star is-blue': role.RoleId === defaultRole.RoleId, 'far fa-star':
+                                role.RoleId !== defaultRole.RoleId }">
+                            </a>
+                            <a href="" data-target="#add-role" ng-click="getRole(role); addmode = false" data-toggle="modal" class="fa fa-pen">
+                            </a>
+                        </td>
+
+                    </tr>
+                    <!-- Administrador de centro -->
+                    <tr ng-repeat="role in roles" class="ng-scope">
+                        <td ng-if="role.CompanyId == null" class="ng-binding ng-scope">Administrador de centro</td>
+                        <td class="ng-binding">0</td>
+                        <td class="actions">
+                            <a href="" ng-click="setDefaultRole(role)" class="far fa-star" ng-class="{ 'fas fa-star is-blue': role.RoleId === defaultRole.RoleId, 'far fa-star':
+                                role.RoleId !== defaultRole.RoleId }">
+                            </a>
+                            <a href="" data-target="#add-role" ng-click="getRole(role); addmode = false" data-toggle="modal" class="fa fa-pen">
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

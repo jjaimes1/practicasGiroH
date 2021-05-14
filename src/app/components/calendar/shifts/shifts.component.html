@@ -1,0 +1,27 @@
+<div class="wrapper-calendar my-4 d-flex">
+    <div>
+        <div>
+            Nombre
+        </div>
+    </div>
+    <div class="d-inline">
+        <div class="header-calendar center">
+            <div>
+                <button (click)="changeWeek(-1)" class="btn">Antes</button>
+            </div>
+            <h6>{{date.format('MMMM')}}{{date.format('YYYY')}} Week-{{weekNo}}</h6>
+            <div>
+                <button (click)="changeWeek(1)" class="btn">Despues</button>
+            </div>
+        </div>
+        <ol>
+            <li (click)="getWeeks" *ngFor="let day of days" [style.gridColumnStart]="day">
+                <div style="width: 100%; height: 40px;">
+                    <div class="w-100 h-100 d-inline">
+                        <span class="mt-1">{{days}}</span>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+</div>

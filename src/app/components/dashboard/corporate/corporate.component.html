@@ -1,0 +1,86 @@
+<div class="fondo border-1 px-5">
+    <div class="flex-row bg-light">
+        <div id="leftSide">
+            <div class="container-xxl p-3 mt-3 mw-100 d-flex" id="solicitudes">
+                <h5>
+                    0 Solicitudes pendientes
+                </h5>
+                <div class="ml-auto">
+                    <select name="motivo" class="mr-2">
+                        <option value="todasSolicitudes">Todas las solicitudes</option>
+                        <option value="vacaciones">Vacaciones</option>
+                        <option value="ausencia">Ausencia</option>
+                        <option value="presencia">Presencia</option>
+                    </select>
+                    <select name="departamento">
+                        <option value="todosDepartamentos">Todos los departamentos</option>
+                    </select>
+                </div>
+            </div>
+            <div class="container-xxl p-3 mt-3 mw-100 d-flex" id="tablon">
+                <h5 class="mt-2">
+                    Tablon de Anuncios
+                </h5>
+                <app-modal-dashboard class="ml-auto mb-5"></app-modal-dashboard>
+            </div>
+            <div class="container-xxl p-3 mt-3 mw-100 d-flex" id="informeVacaciones">
+                <h5 class="mt-2">
+                    Informe de vacaciones por responsable
+                </h5>
+            </div>
+        </div>
+
+        <div id="rightSide justify-content-center">
+            <div class="container-xxl w-100 p-3 mt-3 mw-100" id="busqueda">
+                <div class="d-flex w-100">
+                    <h5 class="text-center mt-1">
+                        Equipo
+                    </h5>
+                    <div class="ml-auto" id="searchWidth">
+                        <form class="form-row align-items-center" id="formprueba"> 
+                            <div class="input-group">
+                                <input class="form-control form-inline form-control-sm mb-5" type="text"
+                                placeholder="Buscar empleado" aria-label="Search">
+                                <div class="input-group-append">
+                                    <button class="input-group-text mb-5">
+                                        <i-feather name="Search" class="fea icon-sm icons d-flex"></i-feather>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="d-flex w-100 justify-content-center">
+                    <div class="bg-white d-flex justify-content-center" id="boxedSearch">
+                        <div class="ml-4 my-3 w-75">
+                            <select name="trabajo" class="form-control form-inline form-control-sm">
+                                <option value="todosTrabajadores">Todos</option>
+                                <option value="disponibles">Disponibles</option>
+                                <option value="noFichado">No han fichado</option>
+                                <option value="noDisponibles">No disponibles</option>
+                                <option value="noTrabajanHoy">No trabajan hoy</option>
+                            </select>
+                        </div>
+                        <div class="ml-auto">
+                            <button class="buttonClean mt-4 mr-4">
+                                <i-feather name="Repeat" class="fea icon-sm icons d-flex"></i-feather>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-xxl w-100 pt-3 mt-3 mw-100" id="avisos">
+                <h5 class="mt-1 ml-3">
+                    Avisos
+                </h5>
+                <div class="d-flex w-100  justify-content-center">
+                    <div class="bg-white w-75 my-2" id="boxed">
+                        <p class="text-center my-1">
+                            No hay datos
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+<!-- Navbar STart -->
+<header id="topnav" class="defaultscroll sticky" (window:scroll)="windowScroll()" [class]="navClass">
+  <div class="container">
+    <!-- Logo container-->
+    <div>
+      <a class="logo" routerLink="/index-apps" *ngIf="navClass !== 'nav-light'">
+        <img src="assets/images/logo-3d-blau.png" class="l-dark" height="80" alt="">
+        <img src="assets/images/logo-3d-blau.png" class="l-light" height="80" alt="">
+      </a>
+      <a class="logo" routerLink="/index-apps" *ngIf="navClass === 'nav-light'">
+        <img src="assets/images/logo-3d-blau.png" class="l-dark" height="80" alt="">
+        <img src="assets/images/logo-3d-blau.png" class="l-light" height="80" alt="">
+      </a>
+    </div>
+    <div class="buy-button">  
+      <a class="btn btn-info" href="http://localhost:4200/auth-cover-login">Login</a> 
+      <!-- <a class="btn btn-primary" href="https://www.timeclick360.com/auth-cover-login">Login</a> -->
+    </div>
+
+    <!--end login button-->
+    <!-- End Logo container-->
+    <div class="menu-extras">
+      <div class="menu-item">
+        <!-- Mobile menu toggle-->
+        <a class="navbar-toggle" (click)="toggleMenu()" [ngClass]="{'open': isCondensed === true}">
+          <div class="lines">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </a>
+        <!-- End mobile menu toggle-->
+      </div>
+    </div>
+
+    <div id="navigation">
+      <!-- Navigation Menu-->
+      <ul class="navigation-menu" [class]="navClass">
+        <li><a routerLink="/index-apps" class="nav-link-ref">{{'INICI'|translate}}</a></li>
+        <li><a (click)="navToContact()" class="nav-link-ref">{{'CONTACTE'|translate}}</a></li>
+        <li><a href="https://giroweb360.com/affiliate" target="_blank" class="nav-link-ref">{{'PARTNEROFICIAL'|translate}}</a></li>
+        <!-- <li class="has-submenu">
+           <a href="javascript:void(0)" (click)="onMenuClick($event)">Pages</a><span class="menu-arrow"></span>
+          <ul class="submenu">
+            <li class="has-submenu"><a href="javascript:void(0)" (click)="onMenuClick($event)"> Account </a><span class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a class="nav-link-ref" routerLink="/account-profile">Profile</a></li>
+                <li><a class="nav-link-ref" routerLink="/account-members">Members </a>
+                </li>
+                <li><a class="nav-link-ref" routerLink="/account-works">Works </a></li>
+                <li><a class="nav-link-ref" routerLink="/account-messages">Messages </a>
+                </li>
+                <li><a class="nav-link-ref" routerLink="/account-payments">Payments </a>
+                </li>
+                <li><a class="nav-link-ref" routerLink="/account-setting">Setting</a></li>
+                <li><a class="nav-link-ref" routerLink="/page-invoice">Invoice</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)" (click)="onMenuClick($event)"> Shop </a><span
+                class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a class="nav-link-ref" routerLink="/shop-products">All Products</a></li>
+                <li><a class="nav-link-ref" routerLink="/shop-product-detail">Product Details</a></li>
+                <li><a class="nav-link-ref" routerLink="/shop-cart">Shop Cart</a></li>
+                <li><a class="nav-link-ref" routerLink="/shop-checkouts">Checkouts</a></li>
+                <li><a class="nav-link-ref" routerLink="/shop-myaccount">My Account</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)" (click)="onMenuClick($event)"> Help center </a><span
+                class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a class="nav-link-ref" routerLink="/helpcenter-overview">Helpcenter</a></li>
+                <li><a class="nav-link-ref" routerLink="/helpcenter-faqs">Faqs</a></li>
+                <li><a class="nav-link-ref" routerLink="/helpcenter-guides">Guides</a></li>
+                <li><a class="nav-link-ref" routerLink="/helpcenter-support-request">Support Call</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)" (click)="onMenuClick($event)"> Email Template</a><span
+                class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a class="nav-link-ref" routerLink="/email-confirmation">Confirmation</a></li>
+                <li><a class="nav-link-ref" routerLink="/email-password-reset">Reset Password</a></li>
+                <li><a class="nav-link-ref" routerLink="/email-alert">Alert</a></li>
+                <li><a class="nav-link-ref" routerLink="/email-invoice">Invoice</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)" (click)="onMenuClick($event)"> Auth Pages</a><span
+                class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a class="nav-link-ref" routerLink="/auth-cover-login">Login Cover</a></li>
+                <li><a class="nav-link-ref" routerLink="/auth-cover-signup">Signup Cover</a></li>
+                <li><a class="nav-link-ref" routerLink="/auth-cover-re-password">Reset Password Cover</a></li>
+                
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)" (click)="onMenuClick($event)"> Utility </a><span
+                class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a class="nav-link-ref" routerLink="/page-terms">Terms of Services</a></li>
+                <li><a class="nav-link-ref" routerLink="/page-privacy">Privacy Policy</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu" routerLink="/page-contact-detail"><a href="javascript:void(0)" (click)="onMenuClick($event)"> Contact </a>  
+            </li>
+          </ul>
+        </li> -->
+        <li class="has-submenu">
+          <a href="javascript:void(0)" (click)="onMenuClick($event)">Idioma</a><span class="menu-arrow"></span>
+          <ul class="submenu">
+            <li class="has-submenu"><a href="javascript:void(0)" (click)="changeLang('es')"> ES </a></li>
+            <li class="has-submenu"><a href="javascript:void(0)" (click)="changeLang('cat')"> CAT </a></li>
+          </ul>
+        </li>
+      </ul>
+      <!--end navigation menu-->
+      <!--end login button-->
+      <!--end login button-->
+    </div>
+    <!--end navigation-->
+  </div>
+  <!--end container-->
+</header>
+<!--end header-->
+<!-- Navbar End -->

@@ -1,0 +1,148 @@
+<ng-template #contenidoCentros let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Centro</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <label>
+            <b class="ng-binding">Información del centro</b>
+        </label>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="ng-binding">ID</label>
+                    <input type="text" class="form-control ng-pristine ng-valid ng-valid-pattern" id="office-officeNumber" placeholder="ID" ng-model="office.OfficeNumber" ng-change="showWarning()" ng-pattern="/^[A-Za-z0-9-_]*$/">
+                        <label class="error ng-binding">Únicamente se permiten may., min., "-" y "_"</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="ng-binding">Nombre</label>
+                    <input type="text" class="form-control ng-pristine ng-invalid ng-invalid-required" id="office-name" placeholder="Nombre" ng-model="office.Name" required="">
+                    <label class="error ng-binding">Nombre requerido</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="ng-binding">Horario</label>
+                    <select class="form-control ng-pristine ng-valid" ng-model="office.ScheduleId" ng-options="i.ScheduleId as i.Name for i in $parent.schedules"><option value="" class="ng-binding">-Ninguno-</option><option value="0">hosting</option></select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="ng-binding">Zona Horaria</label>
+                    <select class="form-control ng-pristine ng-valid ng-valid-required" ng-model="office.TimeZoneId" ng-options="i.TimeZoneId as i.Name for i in $parent.timezone" required=""><option value="0">(GMT-12:00) International Date Line West</option><option value="1">(GMT-11:00) Midway Island, Samoa</option><option value="2">(GMT-10:00) Hawaii</option><option value="3">(GMT-09:00) Alaska</option><option value="4">(GMT-08:00) Pacific Time (US and Canada); Tijuana</option><option value="5">(GMT-07:00) Mountain Time (US and Canada)</option><option value="6">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option><option value="7">(GMT-07:00) Arizona</option><option value="8">(GMT-06:00) Central Time (US and Canada)</option><option value="9">(GMT-06:00) Saskatchewan</option><option value="10">(GMT-06:00) Guadalajara, Mexico City, Monterrey</option><option value="11">(GMT-06:00) Central America</option><option value="12">(GMT-05:00) Eastern Time (US and Canada)</option><option value="13">(GMT-05:00) Indiana (East)</option><option value="14">(GMT-05:00) Bogota, Lima, Quito</option><option value="15">(GMT-04:00) Atlantic Time (Canada)</option><option value="16">(GMT-04:00) La Paz</option><option value="17">(GMT-04:00) Santiago</option><option value="18">(GMT-04:30) Caracas</option><option value="19">(GMT-03:30) Newfoundland and Labrador</option><option value="20">(GMT-03:00) Brasilia</option><option value="21">(GMT-03:00) Buenos Aires, Georgetown</option><option value="22">(GMT-03:00) Greenland</option><option value="23">(GMT-02:00) Mid-Atlantic</option><option value="24">(GMT-01:00) Azores</option><option value="25">(GMT-01:00) Cape Verde Islands</option><option value="26">(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London</option><option value="27">(GMT) Casablanca, Monrovia</option><option value="28">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option><option value="29">(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option><option value="30">(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option><option value="31">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option><option value="32">(GMT+01:00) West Central Africa</option><option value="33">(GMT+02:00) Bucharest</option><option value="34">(GMT+02:00) Cairo</option><option value="35">(GMT+02:00) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius</option><option value="36">(GMT+02:00) Athens, Istanbul, Minsk</option><option value="37">(GMT+02:00) Jerusalem</option><option value="38">(GMT+02:00) Harare, Pretoria</option><option value="39">(GMT+03:00) Moscow, St. Petersburg, Volgograd</option><option value="40">(GMT+03:00) Kuwait, Riyadh</option><option value="41">(GMT+03:00) Nairobi</option><option value="42">(GMT+03:00) Baghdad</option><option value="43">(GMT+03:30) Tehran</option><option value="44">(GMT+04:00) Abu Dhabi, Muscat</option><option value="45">(GMT+04:00) Baku, Tbilisi, Yerevan</option><option value="46">(GMT+04:30) Kabul</option><option value="47">(GMT+05:00) Ekaterinburg</option><option value="48">(GMT+05:00) Islamabad, Karachi, Tashkent</option><option value="49">(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</option><option value="50">(GMT+05:45) Kathmandu</option><option value="51">(GMT+06:00) Astana, Dhaka</option><option value="52">(GMT+06:00) Sri Jayawardenepura</option><option value="53">(GMT+06:00) Almaty, Novosibirsk</option><option value="54">(GMT+06:30) Yangon Rangoon</option><option value="55">(GMT+07:00) Bangkok, Hanoi, Jakarta</option><option value="56">(GMT+07:00) Krasnoyarsk</option><option value="57">(GMT+08:00) Beijing, Chongqing, Hong Kong SAR, Urumqi</option><option value="58">(GMT+08:00) Kuala Lumpur, Singapore</option><option value="59">(GMT+08:00) Taipei</option><option value="60">(GMT+08:00) Perth</option><option value="61">(GMT+08:00) Irkutsk, Ulaanbaatar</option><option value="62">(GMT+09:00) Seoul</option><option value="63">(GMT+09:00) Osaka, Sapporo, Tokyo</option><option value="64">(GMT+09:00) Yakutsk</option><option value="65">(GMT+09:30) Darwin</option><option value="66">(GMT+09:30) Adelaide</option><option value="67">(GMT+10:00) Canberra, Melbourne, Sydney</option><option value="68">(GMT+10:00) Brisbane</option><option value="69">(GMT+10:00) Hobart</option><option value="70">(GMT+10:00) Vladivostok</option><option value="71">(GMT+10:00) Guam, Port Moresby</option><option value="72">(GMT+11:00) Magadan, Solomon Islands, New Caledonia</option><option value="73">(GMT+12:00) Fiji Islands, Kamchatka, Marshall Islands</option><option value="74">(GMT+12:00) Auckland, Wellington</option><option value="75">(GMT+13:00) Nuku’alofa</option></select>
+                </div>
+            </div>
+        </div>
+        <div class="row toogle">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="checkbox no-padding">
+                        <label>
+                            <b class="ng-binding">IP del centro</b>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="checkbox toogle-right">
+                        <label>
+                            <input ng-model="$parent.isIpChecked" type="checkbox" ng-checked="office.IP != null" ng-change="resetConfigIp()" class="tgl ng-isolate-scope ng-pristine ng-valid" toggle-btn=""><label class="tgl-btn" for=""></label>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="ng-binding">Dirección IP </label>
+                    <input type="text" class="form-control ng-pristine ng-valid-pattern ng-valid ng-valid-required" ng-disabled="!$parent.isIpChecked" ng-model="office.IP" ng-change="initToggleCheckedIp()" ng-pattern="ipPattern" ng-required="office.IP != null &amp;&amp; $parent.isIpChecked" validity-bind-fix="" disabled="disabled"> 
+                    <!-- ngIf: office.DevicesKeys -->
+                </div>
+                <div class="checkbox">
+                    <label class="ng-binding" style="cursor: default">
+                        <input type="checkbox" ng-disabled="!$parent.isIpChecked" name="officeSignFromIP" id="osfip" ng-model="office.SignFromIP" class="ng-pristine ng-valid" disabled="disabled">
+                        Bloquear fichajes fuera de estas IPs (separadas por comas)
+                        <!--<small>{{'_AllowSigningsFromCompanyIPAdreessDescription'|i18n}}</small>-->
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row toogle">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="checkbox no-padding">
+                        <label>
+                            <b class="ng-binding">Ubicación</b>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="checkbox toogle-right">
+                        <label>
+                            <input ng-disabled="!loggedCompany.AllowGeoLocation" ng-model="$parent.isCheckedCentre" type="checkbox" ng-change="resetConfigLocation()" class="tgl ng-isolate-scope ng-pristine ng-valid" toggle-btn=""><label class="tgl-btn" for=""></label>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="ng-binding">Latitud</label>
+                    <input type="text" ng-required="office.Radius || office.Longitude" class="form-control ng-pristine ng-valid ng-valid-required" ng-model="office.Latitude" ng-change="showMaps()" ng-disabled="!$parent.isCheckedCentre" disabled="disabled">
+                    <label class="error"></label>
+                </div>
+            </div>  
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="ng-binding">Longitud</label>
+                    <input type="text" ng-required="office.Radius || office.Latitude" class="form-control ng-pristine ng-valid ng-valid-required" ng-model="office.Longitude" ng-change="showMaps()" ng-disabled="!$parent.isCheckedCentre" disabled="disabled">
+                    <label class="error"></label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="ng-binding">Radio</label>
+                    <input type="number" ng-required="office.Longitude || office.Latitude" placeholder="km" class="form-control ng-pristine ng-valid-number ng-valid-min ng-valid ng-valid-required" ng-model="office.Radius" min="0.1" ng-change="showMaps()" ng-disabled="!$parent.isCheckedCentre" disabled="disabled">
+                    <label class="error"></label>
+                </div>
+            </div>
+        </div>
+        <!-- ngIf: office.urlMaps -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label class="ng-binding">
+                            <input ng-disabled="!$parent.isCheckedCentre" type="checkbox" ng-model="office.SignFromLocation" class="ng-pristine ng-valid" disabled="disabled">
+                            Bloquear fichajes fuera de la ubicación
+                         
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ngIf: showDiv && office.OfficeId > 0 -->
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary ng-binding">Aceptar</button>
+        <button class="btn btn-danger" type="button" (click)="modal.close()">Cancelar</button>
+    </div>
+</ng-template>
+
+<!-- <button type="button" class="btn btn-outline-danger" (click)="openCalendar(contenidoCalendar)">Lanzar modal</button> -->
+<button type="button" class="btn btn-dark btn-sm justify-center" (click)="openCentros(contenidoCentros)">Añadir<i-feather name="plus-circle" class="fea icons"></i-feather></button>

@@ -1,0 +1,58 @@
+body {
+    background: #fff;
+    color: #5e666f;
+    font-size: 16px;
+    font-family: Fira Sans,Arial,Helvetica,sans-serif!important;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    color: #5e666f;
+    font-family: Fira Sans,Arial,Helvetica,sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0 0 .5em;
+    text-transform: none;
+    font-size: 18px;
+}
+
+.btn-action {
+    background-color: #0060ff;
+    color: #fff!important;
+    height: 36px;
+    line-height: 26px!important;
+    border-radius: 4px!important;
+    float: right;
+    width: 120px; 
+    text-align: center; 
+    vertical-align: middle;
+}
+
+.table {
+    background: #F4F4F4;
+}
+
+.ng-scope {
+    background:  #fff!important;
+}
+
+.titol {
+    color: #5e666f;
+    padding: 8px 8px 10px;
+    font: 14px "Fira Sans", Arial, Helvetica, sans-serif;
+}
+
+.ng-binding {
+    color: #5e666f;
+    padding: 10px 8px;
+    font: 14px "Fira Sans", Arial, Helvetica, sans-serif;
+}
+
+#container{
+    background-color: #fdfbfb !important;
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-radius: 10px !important;
+    border-color: gray !important;
+}

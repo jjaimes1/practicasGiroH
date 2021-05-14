@@ -1,0 +1,73 @@
+<ng-template #contenidoSolicitudes let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Solicitud masiva</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-3 ng-binding">
+Convenio 
+            </div>
+            <div class="col-sm-9">
+                <select class="form-control ng-pristine ng-valid" ng-model="companyRequest.AgreementId" ng-options="i.AgreementId as i.Name for i in agreements" ng-change="agreementChanged()"><option value="" class="ng-binding">Vacaciones</option><option value="0">hosting</option></select>
+           
+            </div>
+          
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <select class="form-control ng-pristine ng-valid" ng-model="companyRequest.AgreementEventId" ng-options="i.AgreementEventId as i.Name|translate for i in agreementEvents" ng-change="agreementEventChanged()"><option value="" class="ng-binding">Vacaciones</option></select>
+         
+            </div>
+        </div>           
+        <div class="row">
+            <div class="col-sm-12">
+                <select class="form-control ng-pristine ng-valid" ng-model="companyRequest.OfficeId" ng-options="i.OfficeId as i.Name for i in offices" ng-change="optionChanged()"><option value="" class="ng-binding">Todos los centros</option><option value="0">hosting</option></select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <select class="form-control ng-isolate-scope ng-pristine ng-valid" ng-model="companyRequest.DepartmentId" ng-change="optionChanged()" indent-select="" options="departments">
+                    <option value="" class="ng-binding">Todos los departamentos</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="select2-container select2-container-multi form-control ng-isolate-scope ng-pristine ng-valid" id="s2id_autogen11">    <ul class="select2-choices">  <li class="select2-search-field">    <input type="text" autocomplete="off" class="select2-input select2-default" style="width: 0px;">  </li></ul><div class="select2-drop select2-drop-multi" style="display:none;">   <ul class="select2-results">   </ul></div></div><input type="hidden" class="form-control ng-isolate-scope ng-pristine ng-valid select2-offscreen" tagging="" ng-model="selectedSkillsNames" tags="skillsKeys" placeholder="Habilidades" update="updateSkills(selection)" value="" tabindex="-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <input type="text" class="form-control ng-pristine ng-invalid ng-invalid-required" id="day-name" placeholder="Añadir comentario (opcional)" ng-model="companyRequest.QuickDescription" maxlength="500" required="">
+                <label class="error ng-binding">Comentario requerido</label>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-sm-6">
+                <div class="input-group datepicker">
+         
+                    <input type="text" id="fromDate" name="fromDate" class="form-control ng-isolate-scope ng-pristine hasDatepicker ng-valid ng-valid-required" datepicker="" mindate="'fromprevyear'" maxdate="'tonextyear'" ng-model="$parent.uiStartDate" currentdate="$parent.companyRequest.StartDate" disableddays="$parent.disabledDays" close="updateStartDate(date)" datetrigger="'../images/date-picker-btn-2.jpg '" ng-required="$parent.companyRequest.StartDate == null" autocomplete="off" placeholder="de"><img class="ui-datepicker-trigger" src="../images/date-picker-btn-2.jpg " alt="..." title="...">
+                    <label class="error ng-binding">Fecha requerida</label>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="input-group datepicker">
+                    <input type="text" id="toDate" name="toDate" autocomplete="off" class="form-control ng-isolate-scope ng-pristine hasDatepicker ng-invalid ng-invalid-required" placeholder="a" datepicker="" maxdate="'tonextyear'" ng-model="$parent.uiEndDate" currentdate="$parent.companyRequest.EndDate" disableddays="$parent.disabledDays" close="updateEndDate(date)" datetrigger="'../images/date-picker-btn-2.jpg '" ng-required="$parent.companyRequest.EndDate == null" required="required"><img class="ui-datepicker-trigger" src="../images/date-picker-btn-2.jpg " alt="..." title="...">
+                    <label class="error ng-binding">Fecha requerida</label>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary ng-binding">Aceptar</button>
+        <button class="btn btn-danger" type="button" (click)="modal.close()">Cancelar</button>
+    </div>
+</ng-template>
+
+<!-- <button type="button" class="btn btn-outline-danger" (click)="openCalendar(contenidoCalendar)">Lanzar modal</button> -->
+<button type="button" class="btn btn-dark btn-sm justify-center" (click)="openSolicitudes(contenidoSolicitudes)">Añadir<i-feather name="plus-circle" class="fea icons"></i-feather></button>

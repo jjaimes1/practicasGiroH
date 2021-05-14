@@ -1,0 +1,182 @@
+.bloque{
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fdfbfb;
+}
+
+.show{
+    margin:20px;
+    width:100%;
+    padding: 20px;
+    padding-top: 34px;
+}
+
+.borde{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: gray;    
+}
+
+.table{
+    overflow-x: auto;
+    width: 100%;
+}
+
+table{
+    width: 100%;
+}
+
+.top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.equipo{
+    width:35%;
+}
+
+.equipo p{
+    font-size: 15px;
+}
+
+.form{
+    width: 65%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.desplegable{
+    border-right: 1px solid #dee2e6;
+    height: 30px;
+    margin-left: 20px;
+    padding-right: 20px;
+    margin-right: 15px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+  
+.user-box {
+    height: 100%;
+    margin: 0 auto;
+    width: 30px;
+}
+
+.user-id {
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+  
+.dropdown-arrow {
+    height: 0;
+    width: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid gray;
+    position: relative;
+}
+  
+.user-id:hover .dropdown-arrow {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #333;
+    border-top: 10px solid transparent;
+}
+  
+.dropdown-menu {
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    border: none;
+    font-weight: 500;
+    padding: 8px;
+    font-size: 14px;
+    list-style-type: none;
+    display: none;
+    background: #555;
+    background: #f8f9fc;
+    margin-right: 50px;
+    overflow-y: auto;
+}
+
+.user-id:hover .dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+}
+
+.dropdown-menu ul li {
+    list-style-type: none;
+    display: block;
+    height: 100px;
+    width: 400px;
+    font-size: 1.5em;
+    line-height: 2.5em;
+    padding: 20px;
+    color: #fff;
+    border-bottom: 2px solid #333;
+}
+
+.dropdown-menu ul li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu ul li:hover {
+    background: #333;
+    color: #fff;
+}
+
+.addPersona{
+    margin-left: 10px;
+}
+
+.despAddPersona{
+    display: flex;
+    flex-direction: row;
+    margin-top:10px;
+    margin-right: 23px;
+}
+
+#formprueba{
+    width:60%;
+}
+
+.form-control{
+    height: 45px !important;
+}
+
+.input-group{
+    margin-top: 5px;
+}
+
+.dropdown-content{
+    width: 170px;
+    height: 300px;
+}
+
+.form-check{
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+.form-check label{
+    margin-left: 20px;
+}
+
+.dropdown-content p{
+    font-size: 13px;
+    padding-bottom: 10px;
+}

@@ -1,0 +1,50 @@
+.modal-body .text-muted {
+    display: block;
+    font-size: 12px;
+    margin-top: 8px;
+}
+.text-muted {
+    color: #5e666f;
+}
+.text-muted {
+    color: #999;
+}
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+.ajustes-dialog form {
+    line-height: 30px;
+    color: #5e666f;
+}
+.woffu-modal .modal-content {
+    padding: 36px!important;
+    border-radius: .8rem;
+    font-size: 12px;
+}
+body {
+    background: #fff;
+    color: #5e666f;
+    font-size: 16px;
+    font-family: Fira Sans,Arial,Helvetica,sans-serif!important;
+    font-style: normal;
+    font-weight: 400;
+}
+body, td, th {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 14px;
+}
+
+.fea {
+    padding-left: 2px;
+}
+
+#add-role .inner-scroll {
+    overflow: auto;
+    max-height: 45vh;
+    border-radius: 6px;
+    border: 1px solid #f4f4f4;
+}

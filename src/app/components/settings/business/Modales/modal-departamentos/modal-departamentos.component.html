@@ -1,0 +1,150 @@
+<ng-template #contenidoDepartamentos let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Departamentos</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="text-form ng-binding">ID</label>
+                    <input type="text" class="form-control ng-pristine ng-valid ng-valid-pattern" id="department-DepartmentNumber" placeholder="ID" ng-model="department.DepartmentNumber" ng-pattern="/^[A-Za-z0-9-_]*$/" ng-change="showWarning()">
+                        <label class="error ng-binding">Únicamente se permiten may., min., "-" y "_"</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="text-form ng-binding">Nombre del departamento</label>
+                    <input type="text" class="form-control ng-pristine ng-invalid ng-invalid-required" id="dpto-name" placeholder="Nombre del departamento" ng-model="department.Name" required="">
+                    <label class="error ng-binding">Nombre requerido</label>
+                </div>
+            </div>
+        </div>
+        <div class="row ng-hide" ng-show="showDocs">
+            <div class="col-md-12">
+                <label class="text-form ng-binding">Alias</label>
+                <input type="text" class="form-control ng-pristine ng-valid" placeholder="Alias" ng-model="department.DocsRepositoryName">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="text-form ng-binding">Departamento padre  </label>
+                    <select class="form-control ng-pristine ng-valid" ng-model="department.ParentId" ng-change="parentChange()" ng-options="i.DepartmentId as i.FullName for i in $parent.departments"><option value="" class="ng-binding">-Seleccionar departamento padre-</option></select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="radio">
+                    <label class="ng-binding">
+                        <input type="radio" name="vacationPrivacyOptions" id="vp0" ng-model="department.VacationPrivacyValue" ng-value="" class="ng-pristine ng-valid">
+                        Visibilidad del ajuste general <!-- ngInclude: helpButtonViewURL --><span ng-include="helpButtonViewURL" ng-controller="HelpButtonCtrl" ng-init="init('_VacationPrivacy0Desc')" class="dropdown dropdown-help ng-scope">
+<a data-toggle="dropdown-toggle" href="#" onclick="return false;" class="ng-scope">
+<i class="fa fa-question-circle"></i>
+</a>
+<span class="dropdown-menu ng-binding ng-scope" ng-bind-html="help.content">La visibilidad del departamento se rige por la que tenga la empresa en Configuración</span>
+</span>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label class="ng-binding">
+                        <input type="radio" name="vacationPrivacyOptions" id="vp1" value="0" ng-model="department.VacationPrivacyValue" ng-value="0" class="ng-pristine ng-valid">
+                        Sin visibilidad <!-- ngInclude: helpButtonViewURL --><span ng-include="helpButtonViewURL" ng-controller="HelpButtonCtrl" ng-init="init('_VacationPrivacy1Desc')" class="dropdown dropdown-help ng-scope">
+<a data-toggle="dropdown-toggle" href="#" onclick="return false;" class="ng-scope">
+<i class="fa fa-question-circle"></i>
+</a>
+<span class="dropdown-menu ng-binding ng-scope" ng-bind-html="help.content">Los empleados solo pueden ver sus propias ausencias</span>
+</span>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label class="ng-binding">
+                        <input type="radio" name="vacationPrivacyOptions" id="vp2" value="5" ng-model="department.VacationPrivacyValue" ng-value="5" class="ng-pristine ng-valid">
+                        Visibilidad por departamentos <!-- ngInclude: helpButtonViewURL --><span ng-include="helpButtonViewURL" ng-controller="HelpButtonCtrl" ng-init="init('_VacationPrivacy2Desc')" class="dropdown dropdown-help ng-scope">
+<a data-toggle="dropdown-toggle" href="#" onclick="return false;" class="ng-scope">
+<i class="fa fa-question-circle"></i>
+</a>
+<span class="dropdown-menu ng-binding ng-scope" ng-bind-html="help.content">Los empleados pueden ver las ausencias de los miembros de su departamento</span>
+</span>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label class="ng-binding">
+                        <input type="radio" name="vacationPrivacyOptions" id="vp3" value="10" ng-model="department.VacationPrivacyValue" ng-value="10" class="ng-pristine ng-valid">
+                        Visibilidad total <!-- ngInclude: helpButtonViewURL --><span ng-include="helpButtonViewURL" ng-controller="HelpButtonCtrl" ng-init="init('_VacationPrivacy3Desc')" class="dropdown dropdown-help ng-scope">
+<a data-toggle="dropdown-toggle" href="#" onclick="return false;" class="ng-scope">
+<i class="fa fa-question-circle"></i>
+</a>
+<span class="dropdown-menu ng-binding ng-scope" ng-bind-html="help.content">Los empleados pueden ver las ausencias de toda la empresa</span>
+</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="text-form ng-binding">Color</label>
+                </div>
+            </div>
+            <div class="col-sm-12 text-center">
+                <select id="colorpicker-picker-longlist" name="colorpicker-picker-longlist" simplecolorpicker="" ng-model="department.Color" class="ng-isolate-scope ng-pristine ng-valid" style="display: none;"><option value="? string:#B8D6E0 ?"></option>
+                    <option value="#A45354">#A45354</option>
+                    <option value="#B47354">#B47354</option>
+                    <option value="#848355">#848355</option>
+                    <option value="#527253">#527253</option>
+                    <option value="#537495">#537495</option>
+                    <option value="#5154A3">#5154A3</option>
+                    <option value="#7C5686">#7C5686</option>
+                    <option value="#525252">#525252</option>
+                    <option value="#D55356">#D55356</option>
+                    <option value="#EB8558">#EB8558</option>
+                    <option value="#ADAC59">#ADAC59</option>
+                    <option value="#55A457">#55A457</option>
+                    <option value="#56A4A4">#56A4A4</option>
+                    <option value="#73A9E7">#73A9E7</option>
+                    <option value="#AE5DC4">#AE5DC4</option>
+                    <option value="#A5A5A5">#A5A5A5</option>
+                    <option value="#F57275">#F57275</option>
+                    <option value="#F8B55C">#F8B55C</option>
+                    <option value="#B6D45C">#B6D45C</option>
+                    <option value="#77B597">#77B597</option>
+                    <option value="#7BC1DF">#7BC1DF</option>
+                    <option value="#9FBFE2">#9FBFE2</option>
+                    <option value="#DC7EC8">#DC7EC8</option>
+                    <option value="#D9D5CB">#D9D5CB</option>
+                    <option value="#F2809A">#F2809A</option>
+                    <option value="#F7D45E">#F7D45E</option>
+                    <option value="#EFEA60">#EFEA60</option>
+                    <option value="#71DAAB">#71DAAB</option>
+                    <option value="#88E6F2">#88E6F2</option>
+                    <option value="#BFD2EA">#BFD2EA</option>
+                    <option value="#E19DD4">#E19DD4</option>
+                    <option value="#ECDBA9">#ECDBA9</option>
+                    <option value="#CFB0BD">#CFB0BD</option>
+                    <option value="#D1BFB2">#D1BFB2</option>
+                    <option value="#C7CAA8">#C7CAA8</option>
+                    <option value="#ACC9BF">#ACC9BF</option>
+                    <option value="#ADCFCB">#ADCFCB</option>
+                    <option value="#BDC1CA">#BDC1CA</option>
+                    <option value="#C3B1CB">#C3B1CB</option>
+                    <option value="#CCBA95">#CCBA95</option>
+                    <!--<option value="#FFFFFF">#FFFFFF</option>-->
+                </select><span class="simplecolorpicker inline fontawesome"><span class="color" title="#A45354" style="background-color: #A45354;" data-color="#A45354" role="button" tabindex="0"></span><span class="color" title="#B47354" style="background-color: #B47354;" data-color="#B47354" role="button" tabindex="0"></span><span class="color" title="#848355" style="background-color: #848355;" data-color="#848355" role="button" tabindex="0"></span><span class="color" title="#527253" style="background-color: #527253;" data-color="#527253" role="button" tabindex="0"></span><span class="color" title="#537495" style="background-color: #537495;" data-color="#537495" role="button" tabindex="0"></span><span class="color" title="#5154A3" style="background-color: #5154A3;" data-color="#5154A3" role="button" tabindex="0"></span><span class="color" title="#7C5686" style="background-color: #7C5686;" data-color="#7C5686" role="button" tabindex="0"></span><span class="color" title="#525252" style="background-color: #525252;" data-color="#525252" role="button" tabindex="0"></span><span class="color" title="#D55356" style="background-color: #D55356;" data-color="#D55356" role="button" tabindex="0"></span><span class="color" title="#EB8558" style="background-color: #EB8558;" data-color="#EB8558" role="button" tabindex="0"></span><span class="color" title="#ADAC59" style="background-color: #ADAC59;" data-color="#ADAC59" role="button" tabindex="0"></span><span class="color" title="#55A457" style="background-color: #55A457;" data-color="#55A457" role="button" tabindex="0"></span><span class="color" title="#56A4A4" style="background-color: #56A4A4;" data-color="#56A4A4" role="button" tabindex="0"></span><span class="color" title="#73A9E7" style="background-color: #73A9E7;" data-color="#73A9E7" role="button" tabindex="0"></span><span class="color" title="#AE5DC4" style="background-color: #AE5DC4;" data-color="#AE5DC4" role="button" tabindex="0"></span><span class="color" title="#A5A5A5" style="background-color: #A5A5A5;" data-color="#A5A5A5" role="button" tabindex="0"></span><span class="color" title="#F57275" style="background-color: #F57275;" data-color="#F57275" role="button" tabindex="0"></span><span class="color" title="#F8B55C" style="background-color: #F8B55C;" data-color="#F8B55C" role="button" tabindex="0"></span><span class="color" title="#B6D45C" style="background-color: #B6D45C;" data-color="#B6D45C" role="button" tabindex="0"></span><span class="color" title="#77B597" style="background-color: #77B597;" data-color="#77B597" role="button" tabindex="0"></span><span class="color" title="#7BC1DF" style="background-color: #7BC1DF;" data-color="#7BC1DF" role="button" tabindex="0"></span><span class="color" title="#9FBFE2" style="background-color: #9FBFE2;" data-color="#9FBFE2" role="button" tabindex="0"></span><span class="color" title="#DC7EC8" style="background-color: #DC7EC8;" data-color="#DC7EC8" role="button" tabindex="0"></span><span class="color" title="#D9D5CB" style="background-color: #D9D5CB;" data-color="#D9D5CB" role="button" tabindex="0"></span><span class="color" title="#F2809A" style="background-color: #F2809A;" data-color="#F2809A" role="button" tabindex="0"></span><span class="color" title="#F7D45E" style="background-color: #F7D45E;" data-color="#F7D45E" role="button" tabindex="0"></span><span class="color" title="#EFEA60" style="background-color: #EFEA60;" data-color="#EFEA60" role="button" tabindex="0"></span><span class="color" title="#71DAAB" style="background-color: #71DAAB;" data-color="#71DAAB" role="button" tabindex="0"></span><span class="color" title="#88E6F2" style="background-color: #88E6F2;" data-color="#88E6F2" role="button" tabindex="0"></span><span class="color" title="#BFD2EA" style="background-color: #BFD2EA;" data-color="#BFD2EA" role="button" tabindex="0"></span><span class="color" title="#E19DD4" style="background-color: #E19DD4;" data-color="#E19DD4" role="button" tabindex="0"></span><span class="color" title="#ECDBA9" style="background-color: #ECDBA9;" data-color="#ECDBA9" role="button" tabindex="0"></span><span class="color" title="#CFB0BD" style="background-color: #CFB0BD;" data-color="#CFB0BD" role="button" tabindex="0"></span><span class="color" title="#D1BFB2" style="background-color: #D1BFB2;" data-color="#D1BFB2" role="button" tabindex="0"></span><span class="color" title="#C7CAA8" style="background-color: #C7CAA8;" data-color="#C7CAA8" role="button" tabindex="0"></span><span class="color" title="#ACC9BF" style="background-color: #ACC9BF;" data-color="#ACC9BF" role="button" tabindex="0"></span><span class="color" title="#ADCFCB" style="background-color: #ADCFCB;" data-color="#ADCFCB" role="button" tabindex="0"></span><span class="color" title="#BDC1CA" style="background-color: #BDC1CA;" data-color="#BDC1CA" role="button" tabindex="0"></span><span class="color" title="#C3B1CB" style="background-color: #C3B1CB;" data-color="#C3B1CB" role="button" tabindex="0"></span><span class="color" title="#CCBA95" style="background-color: #CCBA95;" data-color="#CCBA95" role="button" tabindex="0"></span></span>
+            </div>
+        </div>
+        <!-- ngIf: showDiv && department.DepartmentId > 0 -->
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary ng-binding">Aceptar</button>
+        <button class="btn btn-danger" type="button" (click)="modal.close()">Cancelar</button>
+    </div>
+</ng-template>
+
+<!-- <button type="button" class="btn btn-outline-danger" (click)="openCalendar(contenidoCalendar)">Lanzar modal</button> -->
+<button type="button" class="btn btn-dark btn-sm justify-center" (click)="openDepartamentos(contenidoDepartamentos)">Añadir<i-feather name="plus-circle" class="fea icons"></i-feather></button>

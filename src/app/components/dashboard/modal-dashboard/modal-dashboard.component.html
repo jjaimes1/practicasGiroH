@@ -1,0 +1,58 @@
+<ng-template #contenido let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Mensaje al tablon de anuncios</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div>
+            <h6>
+                Autor:
+            </h6>
+            <p>
+                Nombre y Apellido
+            </p>
+        </div>
+        <div class="d-flex">
+            <h6 class="mr-auto">
+                Adjuntos:
+                <ng-template #contenidoFile>
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class = "modal-header">
+                            Subir archivo
+                        </div>
+                        <div class="modal-body">
+                            <app-upload-file></app-upload-file>
+                        </div>
+                    </div>
+                    
+                </ng-template>              
+                <button type="button" id="buttonSize" class="btn" style="background-color: transparent;" (click)="openFile(contenidoFile)">Subir Archivo</button>
+            </h6>
+           
+        </div>
+        <div>
+            <h6>
+                Mensaje:
+            </h6>
+            <div>
+                <input type="text" class="textSize form-control" id="mensajeTexto">
+            </div>
+        </div>
+        <div class="margin">
+            <h6>
+                Destinatarios:
+            </h6>
+            <div>  
+                <input type="text" class="textDestination form-control" id="destinatarioTexto">
+            </div>
+        
+        </div>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">  
+        <button type="button" class="btn btn-dark" (click)="modal.close()">Aceptar</button>      
+    </div>
+</ng-template>
+
+<button type="button" id="buttonSize" class="btn mb-3" style="background-color: transparent;" (click)="openMD(contenido)">Nuevo Mensaje</button>

@@ -1,0 +1,40 @@
+<ng-template #contingut let-modal>
+    <div class="modal-header justify-content-center">
+        <div class="container">
+            <div class="row">
+              <div class="col">
+                <h5>Seleccionar archivos
+                    <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h5>         
+              </div>
+            </div>
+        </div>
+        <hr>       
+    </div>    
+    <div class="modal-body justify-content-center bg-light">
+        <p>Subir archivos desde tu PC</p>
+        <div class="container">
+            <div class="row">
+              <div class="col text-center">
+                <div class="border" id="requadre">
+                  <h4 ng-if="vm.dropSupported" class="label__heading ng-binding ng-scope text-muted">Arrastre archivos aquí</h4>
+                  <p ng-if="vm.dropSupported" class="small mg-t--2x ng-binding ng-scope text-muted">- o -</p>
+                  <label class="custom-file-upload">
+                    <input type="file" (change)="handleFileInput($event.target.files)">
+                  </label>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer justify-content-center">
+
+    </div>
+</ng-template>
+
+<div class="file border p-4 m-2 rounded btn" (click)="OpenSM(contingut)" id="document">
+        <i class="fa fa-plus text-primary ng-scope" data-target="#diary-confirm" data-toggle="modal" ng-if="isUserAcceptable"></i>
+        <p class="ng-binding text-primary ng-scope" data-target="#diary-confirm" data-toggle="modal" ng-if="isUserAcceptable">Añadir documento</p>
+</div>

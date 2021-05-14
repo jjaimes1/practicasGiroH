@@ -1,0 +1,146 @@
+<div class="fondo border-1 px-5">
+    <div class="flex-row bg-light">
+        <div class="izquierda mr-4">
+            <div class="col-flex borde p-3">
+                <h4>Solicitar</h4>
+                <div class="flex-dias">
+                    <div class="dias">
+                        <div><h3>23 días</h3></div>
+                        <div class="disponible"><p>Disponibles</p></div>
+                        <div class="line1"><hr></div>
+                        <div class="StrigsAndHr">
+                            <div><p><b>0 días</b><br><p class="subtittle">Solicitados</p></p></div>          
+                            <div class="line2"><hr></div>
+                            <div><p><b>23 días</b><br><p class="subtittle">Asignados</p></p></div>
+                        </div>
+                        <div class="stringEnd"><p><b>0 días</b><br><p class="subtittle">Del próximo ejercicio</p></p></div>  
+                    </div>
+                    <div class="campos">
+                        <div class="titleInput"><p class="subtittle">Motivo</p></div>
+                        <select class="form-control ng-pristine ng-valid" name="agreementEventsSelector" ng-model="request.AgreementEventId" ng-options="i.AgreementEventId as i.Name  group by i.Type for i in agreementEvents" ng-change="updateAgreementEvent(request)">
+                            <option value="" class="ng-binding">Seleccionar motivo</option>
+                            <optgroup label="Motivos de ausencia">
+                                <option value="0">Vacaciones (23 días)</option>
+                                <option value="1">Nacimiento de hija/o</option>
+                                <option value="2">Defunción</option>
+                                <option value="3">Horas de ausencia</option>
+                                <option value="4">Maternidad</option>
+                                <option value="5">Mudanza</option>
+                                <option value="6">Otros</option>
+                                <option value="7">Paternidad</option>
+                                <option value="8">Media jornada (23 días)</option>
+                                <option value="9">Enfermedad</option>
+                                <option value="10">Boda</option>
+                            </optgroup>
+                            <optgroup label="Motivos de presencia">
+                                    <option value="11">Extr. a compensar</option>
+                                    <option value="12">Por defecto</option>
+                                    <option value="13">Extraordinarias</option>
+                                    <option value="14">Extr. fuerza mayor</option>
+                                    <option value="15">Ajuste de sistema</option>
+                                    <option value="16">Trabaja desde casa</option>
+                                    <option value="17">Trabajar en día festivo</option>
+                                </optgroup>
+                        </select>
+                        <div class="flex-dias2 mt-3">
+                            <div class="col-flex2 mr-2">
+                                <div class="titleInput"><p class="subtittle">Fecha inicio</p></div>
+                                <div>                                
+                                    <input type="date" id="fromDate" name="fromDate" class="form-control ng-isolate-scope ng-pristine hasDatepicker ng-invalid ng-invalid-required" required="required">
+                                </div>
+                            </div>
+                            <div class="col-flex2">
+                                <div class="titleInput"><p class="subtittle">Fecha fin</p></div>
+                                <input type="date" id="fromDate" name="fromDate" class="form-control ng-isolate-scope ng-pristine hasDatepicker ng-invalid ng-invalid-required" required="required">
+                            </div>
+                        </div>
+                        <div class="titleInput mt-3"><p class="subtittle">Observaciones</p></div>
+                        <input type="textarea" placeholder="Añadir comentario (opcional)" name="comentario" class="form-control"><br>
+                        <div class="centrar">
+                            <a href="#" (click)="showFilesModal(content);deshabilitar(this)" >
+                                <i-feather name="paperclip" class="fea icon-sm icons"></i-feather> Añadir documentos
+                            </a>
+                            <div class="titleInput mt-3"><p class="subtittle">
+                                <input type="checkbox"> Aceptar directamente</p>
+                            </div>
+                            <button type="submit" ng-disabled="errorDates || attachedDocs.length > 10" class="btn large btn-primary ng-binding mt-3 mb-4">Solicitar</button>
+                        </div>      
+                    </div>
+                </div>
+            </div>
+            <div class="col-flex-magin borde p-3">
+                <h4>Mi calendario</h4>
+                <div class="legend text-right">
+                    <span class="ml-3"><span class="fa fa-square pend"></span> Pendientes</span>
+                    <span class="ml-3"><span class="fa fa-square acept"></span> Aceptados</span>
+                    <span class="ml-3"><span class="fa fa-square disf"></span> Consumidos</span>
+                    <span class="ml-3"><span class="fa fa-square fest"></span> Festivos</span>
+                </div>
+
+
+                <div class="calendario">
+                    <div class="container">
+                        <div class="row"> 
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+                                <div id="my-calendar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="derecha">
+            <div class="col-flex borde p-3">
+                <h4>Mis solicitudes</h4>
+                <select class="form-control" name="solicitudes" id="solicitudes">
+                    <option value="Pendientes" selected>Pendientes</option>
+                    <option value="Aceptadas">Aceptadas</option>
+                    <option value="Rechazadas">Rechazadas</option>
+                    <option value="Todas">Todas</option>
+                </select>
+            </div>
+            <div class="col-flex-magin borde p-3">
+                <h4>Próximos festivos</h4>
+                <li class="fecha">
+                    <dl class="pull-left">
+                        <dd class="mes">may.</dd>
+                        <dd>1</dd>
+                        <dd class="semana">sá.</dd>
+                    </dl>
+                    <div class="nombreFiesta">
+                        Fiesta del Trabajo
+                    </div>
+                </li>
+                <li class="fecha">
+                    <dl class="pull-left">
+                        <dd class="mes">may.</dd>
+                        <dd>3</dd>
+                        <dd class="semana">lu.</dd>
+                    </dl>
+                    <div class="nombreFiesta">
+                        Lunes siguiente al Día de la Comunidad de Madrid
+                    </div>
+                </li>             
+            </div>           
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <div class="closeBtn" (click)="modal.close()"><a href="#" (click)="deshabilitar(this)">x</a></div>
+    </div>
+    <div class="modal-body">
+        <div class="dropContent">
+            <div id="drop_zone" (drop)="dropHandler($event)" (dragover)="dragOverHandsler($event)">
+                <p>Arrastra los archivos aquí...</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer"></div>
+</ng-template>
+
+

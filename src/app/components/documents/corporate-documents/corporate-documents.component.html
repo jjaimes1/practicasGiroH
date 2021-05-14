@@ -1,0 +1,12 @@
+<section class="section p-3 bg-light" id="seccion3">
+    <div class="container w-100 p-4 bg-white rounded" id="principal">        
+        <div class="row my-row">
+            <h4 class="p-2 text-dark font-weight-bold">Documentos</h4>         
+            <div class="actions ml-auto w-25 p-2" ng-if="!requestView">
+                <input type="text" class="form-control ng-pristine ng-valid" name="searchQuery" ng-change="searchDocsByQuery(query)" ng-model="query" ng-model-options="{ debounce: 400 }" placeholder="Buscar documentos o etiquetas…">
+                <!-- ngIf: searchQuery != null -->
+            </div>  
+        </div> 
+            <app-modal-corporate-document></app-modal-corporate-document>
+    </div>
+</section>

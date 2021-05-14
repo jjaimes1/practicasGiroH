@@ -1,0 +1,101 @@
+<ng-template #contenidoReglas let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Añadir regla</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <input class="form-control ng-pristine ng-invalid ng-invalid-required" ng-model="rule.Name" type="text" placeholder="Nombre" required="">
+                <label class="error ng-binding">Nombre requerido</label>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="input-group datepicker">
+                    <input type="text" id="ruleFromDate" name="fromDate" class="form-control ng-isolate-scope ng-pristine ng-valid hasDatepicker" placeholder="de" datepicker="" ng-model="$parent.uiStartDate" currentdate="$parent.rule.StartDate" close="updateStartDate(date)" datetrigger="'../images/date-picker-btn-2.jpg '"><img class="ui-datepicker-trigger" src="../images/date-picker-btn-2.jpg " alt="..." title="...">
+                    <label class="error ng-binding">Fecha requerida</label>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="input-group datepicker">
+                    <input type="text" id="ruleToDate" name="toDate" class="form-control ng-isolate-scope ng-pristine ng-valid hasDatepicker" placeholder="a" datepicker="" ng-model="$parent.uiEndDate" currentdate="$parent.rule.EndDate" close="updateEndDate(date)" datetrigger="'../images/date-picker-btn-2.jpg '"><img class="ui-datepicker-trigger" src="../images/date-picker-btn-2.jpg " alt="..." title="...">
+                    <label class="error ng-binding">Fecha requerida</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <select class="form-control ng-pristine ng-valid" ng-model="rule.OfficeId" ng-options="i.OfficeId as i.Name for i in offices"><option value="" class="ng-binding">Todos los centros</option><option value="0">hosting</option></select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <select class="form-control ng-pristine ng-valid" ng-model="rule.DepartmentId" ng-options="i.DepartmentId as i.Name for i in departments"><option value="" class="ng-binding">Todos los departamentos</option></select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <select class="form-control ng-pristine ng-valid" ng-model="rule.JobTitleId" ng-options="i.JobTitleId as i.Name for i in jobTitles"><option value="" class="ng-binding">Seleccionar cargo</option></select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <select class="form-control ng-pristine ng-valid" ng-model="rule.ScheduleId" ng-options="i.ScheduleId as i.Name for i in schedules"><option value="" class="ng-binding">Seleccionar horario</option><option value="0">hosting</option></select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="select2-container select2-container-multi form-control ng-isolate-scope ng-pristine ng-valid" id="s2id_autogen10">    <ul class="select2-choices">  <li class="select2-search-field">    <input type="text" autocomplete="off" class="select2-input select2-default" style="width: 0px;">  </li></ul><div class="select2-drop select2-drop-multi" style="display:none;">   <ul class="select2-results">   </ul></div></div><input type="hidden" class="form-control ng-isolate-scope ng-pristine ng-valid select2-offscreen" tagging="" ng-model="selectedSkillsNames" tags="skillsKeys" placeholder="Habilidades" update="updateSkills(selection)" value="" tabindex="-1">
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-12">
+                <div><span class="ng-binding">Mínimo de empleados</span></div>
+                <div class="col-sm-4">
+                    <input class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-number ng-valid-min" ng-model="$parent.usersValue" type="number" min="1" required="">
+                    <label class="error ng-binding">Valor incorrecto</label>
+                </div>
+                <div class="col-sm-8">
+                    <select class="form-control ng-pristine ng-valid ng-valid-required" ng-model="$parent.modelRule" required="">
+                        <option value="0" class="ng-binding">Cantidad de empleados</option>
+                        <option value="1" class="ng-binding"> % de empleados</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="checkbox">
+                    <label class="ng-binding">
+                        <input type="checkbox" ng-model="rule.IncludeHolidays" class="ng-pristine ng-valid"> Aplicable a días festivos
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="checkbox">
+                    <label class="ng-binding">
+                        <input type="checkbox" ng-model="rule.Active" class="ng-pristine ng-valid"> Activa
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary ng-binding">Aceptar</button>
+        <button class="btn btn-danger" type="button" (click)="modal.close()">Cancelar</button>
+    </div>
+</ng-template>
+
+<!-- <button type="button" class="btn btn-outline-danger" (click)="openCalendar(contenidoCalendar)">Lanzar modal</button> -->
+<button type="button" class="btn btn-dark btn-sm justify-center" (click)="openReglas(contenidoReglas)">Añadir<i-feather name="plus-circle" class="fea icons"></i-feather></button>

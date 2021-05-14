@@ -1,0 +1,113 @@
+<ng-template #contenidoRequests let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title"> Nueva solicitud </h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="campos">
+            <div class="titleInput">
+                <h6 class="subtittle">Motivo</h6>
+            </div>
+
+            <select class="form-control ng-pristine ng-valid" name="agreementEventsSelector">
+                <option value="" class="ng-binding">Seleccionar motivo</option>
+                <optgroup label="Motivos de ausencia">
+                    <option value="0">Vacaciones (23 días)</option>
+                    <option value="1">Nacimiento de hija/o</option>
+                    <option value="2">Defunción</option>
+                    <option value="3">Horas de ausencia</option>
+                    <option value="4">Maternidad</option>
+                    <option value="5">Mudanza</option>
+                    <option value="6">Otros</option>
+                    <option value="7">Paternidad</option>
+                    <option value="8">Media jornada (23 días)</option>
+                    <option value="9">Enfermedad</option>
+                    <option value="10">Boda</option>
+                </optgroup>
+                <optgroup label="Motivos de presencia">
+                    <option value="11">Extr. a compensar</option>
+                    <option value="12">Por defecto</option>
+                    <option value="13">Extraordinarias</option>
+                    <option value="14">Extr. fuerza mayor</option>
+                    <option value="15">Ajuste de sistema</option>
+                    <option value="16">Trabaja desde casa</option>
+                    <option value="17">Trabajar en día festivo</option>
+                </optgroup>
+            </select>
+            <div class="flex-dias2 mt-3 d-flex w-100">
+                <div class="col-flex2 mr-2 w-50">
+                    <div class="titleInput">
+                        <h6 class="subtittle">Fecha inicio</h6>
+                    </div>
+                    <div>
+                        <input type="date" id="fromDate" name="fromDate"
+                            class="form-control ng-isolate-scope ng-pristine hasDatepicker ng-invalid ng-invalid-required"
+                            required="required">
+                    </div>
+                </div>
+                <div class="col-flex2 ml-auto w-50">
+                    <div class="titleInput">
+                        <h6 class="subtittle">Fecha fin</h6>
+                    </div>
+                    <input type="date" id="fromDate" name="fromDate"
+                        class="form-control ng-isolate-scope ng-pristine hasDatepicker ng-invalid ng-invalid-required"
+                        required="required">
+                </div>
+            </div>
+
+            <div class="titleInput mt-3">
+                <h6 class="subtittle">Observaciones</h6>
+            </div>
+            <input type="textarea" placeholder="Añadir comentario (opcional)" name="comentario"
+                class="form-control"><br>
+        </div>
+        <div class="centrar">
+            <a href="#" (click)="showFilesModal(contenidoDocuments);deshabilitar(this)" >
+                <i-feather name="paperclip" class="fea icon-sm icons"></i-feather> Añadir documentos
+            </a>
+        </div>     
+    </div>
+    <div class="modal-footer justify-content-center">
+        <button type="submit" ng-disabled="errorDates || attachedDocs.length > 10" class="btn large btn-primary ng-binding mt-3 mb-4">Solicitar</button>
+    </div>
+</ng-template>
+
+<ng-template #contenidoDocuments let-modal>
+    <div class="model-header">
+        <button class="close mr-2 mt-1" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="dropContent">
+            <div id="drop_zone" (drop)="dropHandler($event)" (dragover)="dragOverHandsler($event)">
+                <p>Arrastra los archivos aquí...</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer"></div>
+</ng-template>
+
+<div class="container-xxl w-100 pt-3 mt-3 mw-100 d-inline">
+    <div class="pressContent d-flex">
+        <div class="my-3 mx-3 d-flex w-100">
+            <div>
+                <h6 class="formatRequests">
+                    VACACIONES
+                </h6>
+            </div>
+            <div class="ml-auto">
+                <h6 class="formatRequests">
+                    23 Días
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex w-100">
+        <button type="button" class="buttonConfiguration btn my-4 mx-auto"
+            (click)="openRequests(contenidoRequests)">Nueva Solicitud</button>
+    </div>
+</div>
